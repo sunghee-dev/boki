@@ -1,0 +1,614 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#273754">
+<title>boki · 簿記 단어장</title>
+<link rel="manifest" href="data:application/manifest+json;base64,eyJuYW1lIjogImJva2kg4oCUIOewv+iomCDri6jslrTsnqUiLCAic2hvcnRfbmFtZSI6ICJib2tpIiwgInN0YXJ0X3VybCI6ICIuIiwgInNjb3BlIjogIi4iLCAiZGlzcGxheSI6ICJzdGFuZGFsb25lIiwgImJhY2tncm91bmRfY29sb3IiOiAiI2Y0ZjVmMyIsICJ0aGVtZV9jb2xvciI6ICIjMjczNzU0IiwgImljb25zIjogW3sic3JjIjogImRhdGE6aW1hZ2UvcG5nO2Jhc2U2NCxpVkJPUncwS0dnb0FBQUFOU1VoRVVnQUFBTUFBQUFEQUNBWUFBQUJTM0d3SEFBQUQ4MGxFUVZSNG5PM2N1M0hiUUJTR1VaRGpYaFE1Y2FJQzNJRkhzVE5IcnNDRk9GTG1XQzJvQUNWTUhLa2FPZkJRVDc0QUxMQlkvT2NVQUNHNEh5NldrcmpwRnVicSt1YXA5ajB3bmNlSHUwM3RlM2l0NnMwWWRycXViaFN6LzJCRHp5bHp4ekRiRHpQNDlERlhDSlAvRUlQUEdGT0hNTm5GRFQ0bFRSVkM4WXNhZktaVU9vUnR5WXNaZnFaV2VzYUsxR1R3cWFIRU5oaTlBUXcvdFpTWXZWRUJHSDVxR3p1RGd3TXcvQ3pGbUZrY0ZJRGhaMm1Hem1UdkFBdy9TelZrTm5zRllQaFp1cjR6ZW5FQWhwOVc5Sm5WaXdJdy9MVG0wcGs5RzREaHAxV1h6RzdSUDRXQTFwd013Tk9mMXAyYjRhTUJHSDdXNHRRc2V3VWkyc0VBUFAxWm0yTXpiUU1RN1VNQW52NnMxYUhadGdHSTlpWUFUMy9XN3YyTTJ3QkVldzdBMDU4VXIyZmRCaUNhQUlpMjdUcXZQK1Raejd3TlFEUUJFRTBBUkJNQTBUWU93Q1N6QVlnbUFLSUpnR2dDSUpvQWlDWUFvZ21BYUFJZ21nQ0lKZ0NpQ1lCb0FpQ2FBSWdtQUtJSmdHZ0NJSm9BaUNZQW9nbUFhQUlnV21RQXUvdmJYN3Y3MjErMTc0UDZJZ09BUFFFUVRRQkVFd0RSQkVBMEFSQk5BRVFUQU5FRVFMUlB0VzlncUQ4Ly95N2lHcno0L3Z0ejdWdm96UVlnbWdDSUpnQ2lDWUJvelI2Q3h4eTRkdC9HWDROMXNBR0lKZ0NpQ1lCb0FpQ2FBSWdtQUtJSmdHZ0NJSm9BaUNZQW9nbUFhQUlnbWdDSUpnQ2lDWUJvQWlDYUFJZ21BS0lKZ0dnQ0lKb0FpTmJzdDBMczdtOFhjUTFlZlBuNm8vWXQ5R1lERUUwQVJCTUEwUVJBdEdZUHdXTU9YUHZEYjR1SE5zcXlBWWdtQUtJSmdHZ0NJSm9BaUNZQW9nbUFhQUlnbWdDSUpnQ2lDWUJvQWlDYUFJZ21BS0lKZ0dnQ0lKb0FpQ1lBb2dtQWFBSWdXclAvRk8rYjRaYW54Uzhac0FHSUpnQ2lDWUJvQWlCYXM0ZGczd3hIQ1RZQTBRUkFOQUVRVFFCRUV3RFJCRUEwQVJCTkFFUVRBTkUyVjljM1Q3VnZBbXF4QVlnbUFLSUpnR2dDSUpvQWlDWUFvZ21BYUFJZ21nQ0lKZ0NpQ1lCb0FpQ2FBSWdtQUtJSmdHZ0NJSm9BaUNZQW9nbUFhQUlnMnZieDRXNVQreWFnaHNlSHU0ME5RRFFCRUUwQVJCTUEwYlpkOS84d1VQdEdZRTc3bWJjQmlDWUFvajBINERXSUZLOW4zUVlnMnBzQWJBSFc3djJNMndCRSt4Q0FMY0JhSFpwdEc0Qm9Cd093QlZpYll6TnRBeER0YUFDMkFHdHhhcFpQYmdBUjBMcHpNK3dWaUdobkE3QUZhTlVsczN2UkJoQUJyYmwwWmk5K0JSSUJyZWd6cTczT0FDSmc2ZnJPYU85RHNBaFlxaUd6T2VoVElCR3dORU5uY3ZESG9DSmdLY2JNNHFqZkE0aUEyc2JPNE9oZmhJbUFXa3JNWHRIaHZicStlU3A1UFRpazVFTzM2SjlDMkFaTXJmU01UVGF3dGdFbFRmVnduZnlKTFFUR21QcXRZclpYRmlIUXgxeXYwN08vc3d1QlUrWStSMVk5dElxQnJxdjc0Y25pUHJVUnhib3Q3WlBDZi91SjdQcGNnczlaQUFBQUFFbEZUa1N1UW1DQyIsICJzaXplcyI6ICIxOTJ4MTkyIiwgInR5cGUiOiAiaW1hZ2UvcG5nIn0sIHsic3JjIjogImRhdGE6aW1hZ2UvcG5nO2Jhc2U2NCxpVkJPUncwS0dnb0FBQUFOU1VoRVVnQUFBZ0FBQUFJQUNBWUFBQUQwZU5UNkFBQU11RWxFUVZSNG5PM2R2WlVVMlFHRzRSb091V0RKV1ljQXlFQUhXeDZXSWxBRWlrQVdubXhTSUFBY0hGbEVnd3pPN0RZdzA5TS85WE9yM3VkeDE2bStZM3h2M3hwMkhpYUc5T2J0Kys5YlB3UEFITDU5K2ZTdzlUUHdPeitValJoNGdCOEV3alljK2dxTVBjQjFSTUh5SFBBQ0REN0F2QVRCL0J6b0RBdyt3TG9Fd2YwYzRJMk1Qc0FZeE1CdEhOb1ZqRDdBMk1UQTVSelVDNHcrd0Q2SmdmTWN6ak1NUDhBeENJR25PWlFUUmgvZzJNVEFYeHpFWlBnQmFvUkFQQUFNUDBCYk9RU1NIOXp3QTNDcUdBS3BEMno0QVRpbkZBS0pEMnI0QWJoR0lRUmViZjBBU3pQK0FGeXJzQjJITFp6Q0R3K0E1UjMxTnVCd0g4cndBN0NFbzRYQW9WNEJHSDhBbG5LMGpUbEV6Unp0aHdMQTJJNXdHN0Q3R3dEakQ4RGFqckE5dXc2QUkvd0FBTmludlcvUUxxOHc5bjdvQUJ6TEhsOEo3TzRHd1BnRE1KbzlidE91QW1DUEJ3eEF3OTQyYWhkWEZuczdWQURhOXZCS1lQZ2JBT01Qd043c1lidUdEb0E5SENBQVBHWDBEUnMyQUVZL09BQjR5Y2hiTm1RQWpIeGdBSENOVVRkdHVBQVk5YUFBNEZZamJ0dFFBVERpQVFIQUhFYmJ1R0VDWUxTREFZQzVqYlIxUXdUQVNBY0NBRXNhWmZNMkQ0QlJEZ0lBMWpMQzltMGFBQ01jQUFCc1llc04zQ3dBdHY3Z0FMQzFMYmR3a3dBdy9nRHd3MWFidUhvQUdIOEErTmtXMjdocUFCaC9BSGphMmh1NVdnQVlmd0E0YjgydFhDVUFqRDhBWEdhdHpkejgvd01BQUt4djhRRHc3UjhBcnJQR2RpNGFBTVlmQUc2ejlJWXVGZ0RHSHdEdXMrU1craDBBQUFoYUpBQjgrd2VBZVN5MXFiTUhnUEVIZ0hrdHNhMnpCb0R4QjRCbHpMMnhmZ2NBQUlKbUN3RGYvZ0ZnV1hOdTdTd0JZUHdCWUIxemJhNVhBQUFRZEhjQStQWVBBT3VhWTN2ZEFBQkEwRjBCNE5zL0FHemozZzIrT1FDTVB3QnM2NTR0OWdvQUFJSnVDZ0RmL2dGZ0RMZHVzaHNBQUFpNk9nQjgrd2VBc2R5eXpXNEFBQ0RvcWdEdzdSOEF4blR0UnJzQkFJQ2dpd1BBdDM4QUdOczFXKzBHQUFDQ0xnb0EzLzRCWUI4dTNXdzNBQUFRSkFBQUlPakZBSEQ5RHdEN2NzbDJ1d0VBZ0tDekFlRGJQd0RzMDBzYjdnWUFBSUlFQUFBRVBSc0FydjhCWU4vT2Jia2JBQUFJRWdBQUVQUmtBTGorQjRCamVHN1QzUUFBUUpBQUFJQ2czd0xBOVQ4QUhNdFQyKzRHQUFDQ0JBQUFCQWtBQUFqNktRQzgvd2VBWS9wMTQ5MEFBRUNRQUFDQUlBRUFBRUYvQm9EMy93QndiS2RiN3dZQUFJSUVBQUFFQ1FBQUNCSUFBQkQwYXByOEFpQUFWRHh1dmhzQUFBZ1NBQUFRSkFBQUlFZ0FBRUNRQUFDQUlBRUFBRUVDQUFDQ0h2dy9BQUNneHcwQUFBUUpBQUFJRWdBQUVDUUFBQ0JJQUFCQWtBQUFnQ0FCQUFCQkFnQUFnZ1FBQUFRSkFBQUlFZ0FBRUNRQUFDQklBQUJBa0FBQWdDQUJBQUJCQWdBQWdnUUFBQVFKQUFBSUVnQUFFQ1FBQUNCSUFBQkFrQUFBZ0NBQkFBQkJBZ0FBZ2dRQUFBUUpBQUFJRWdBQUVDUUFBQ0JJQUFCQWtBQUFnQ0FCQUFCQkFnQUFnZ1FBQUFRSkFBQUlFZ0FBRUNRQUFDQklBQUJBa0FBQWdDQUJBQUJCQWdBQWdnUUFBQVFKQUFBSUVnQUFFQ1FBQUNCSUFBQkFrQUFBZ0NBQkFBQkJBZ0FBZ2dRQUFBUUpBQUFJZXIzMUE5RDI5ZlBIZnozMzMvNTQ5K0hmYXo0TFFJa2JBQUFJRWdBQUVDUUFBQ0JJQUFCQWtBQUFnQ0FCQUFCQkFnQUFnZ1FBQUFRSkFBQUlFZ0FBRUNRQUFDQklBQUJBa0FBQWdDQUJBQUJCQWdBQWdnUUFBQVFKQUFBSUVnQUFFQ1FBQUNCSUFBQkFrQUFBZ0NBQkFBQkJBZ0FBZ2dRQUFBUzkzdm9CV01kLy8vbS9yUi9oYW50OFpqaUtmL3puYjFzL0FndHpBd0FBUVFJQUFJSUVBQUFFQ1FBQUNCSUFBQkFrQUFBZ1NBQUFRSkFBQUlBZ0FRQUFRUUlBQUlJRUFBQUVDUUFBQ0JJQUFCRGtyd0ZHalBxWHZiNysvZm4vTnVvekF4eUJHd0FBQ0JJQUFCQWtBQUFnU0FBQVFKQUFBSUFnQVFBQVFRSUFBSUlFQUFBRUNRQUFDQklBQUJBa0FBQWdTQUFBUUpBQUFJQWdBUUFBUVFJQUFJSUVBQUFFQ1FBQUNCSUFBQkFrQUFBZ1NBQUFRSkFBQUlBZ0FRQUFRUUlBQUlJRUFBQUVDUUFBQ0JJQUFCQWtBQUFnU0FBQVFKQUFBSUFnQVFBQVFRSUFBSUlFQUFBRUNRQUFDQklBQUJBa0FBQWdTQUFBUUpBQUFJQWdBUUFBUVFJQUFJSUVBQUFFQ1FBQUNCSUFBQkFrQUFBZ1NBQUFRSkFBQUlBZ0FRQUFRUUlBQUlJRUFBQUVDUUFBQ0JJQUFCQWtBQUFnU0FBQVFKQUFBSUFnQVFBQVFRSUFBSUlFQUFBRUNRQUFDSHE5OVFPd2pxK2ZQMjc5Q0ZmYjR6UERVZnp4N3NQV2o4REMzQUFBUUpBQUFJQWdBUUFBUVFJQUFJSUVBQUFFQ1FBQUNCSUFBQkFrQUFBZ1NBQUFRSkFBQUlBZ0FRQUFRUUlBQUlJRUFBQUUrV3VBRWFQK1phOXpmL0Z2MUdjR09BSTNBQUFRSkFBQUlFZ0FBRUNRQUFDQUlBRUFBRUVDQUFDQ0JBQUFCQWtBQUFnU0FBQVFKQUFBSUVnQUFFQ1FBQUNBSUFFQUFFRUNBQUNDQkFBQUJBa0FBQWdTQUFBUUpBQUFJRWdBQUVDUUFBQ0FJQUVBQUVFQ0FBQ0NCQUFBQkFrQUFBZ1NBQUFRSkFBQUlFZ0FBRUNRQUFDQUlBRUFBRUVDQUFDQ0JBQUFCQWtBQUFnU0FBQVFKQUFBSUVnQUFFQ1FBQUNBSUFFQUFFRUNBQUNDQkFBQUJBa0FBQWdTQUFBUUpBQUFJRWdBQUVDUUFBQ0FJQUVBQUVFQ0FBQ0NCQUFBQkFrQUFBZ1NBQUFRSkFBQUlFZ0FBRUNRQUFDQUlBRUFBRUVDQUFDQ0JBQUFCQWtBQUFoNnZmVURzSTZ2bno5dS9RaFgyK016dzFIODhlN0Qxby9Bd3R3QUFFQ1FBQUNBSUFFQUFFRUNBQUNDQkFBQUJBa0FBQWdTQUFBUUpBQUFJRWdBQUVDUUFBQ0FJQUVBQUVFQ0FBQ0NCQUFBQlBscmdCR2ovbVd2YzMveGI5Um5CamdDTndBQUVDUUFBQ0JJQUFCQWtBQUFnQ0FCQUFCQkFnQUFnZ1FBQUFRSkFBQUlFZ0FBRUNRQUFDQklBQUJBa0FBQWdDQUJBQUJCQWdBQWdnUUFBQVFKQUFBSUVnQUFFQ1FBQUNCSUFBQkFrQUFBZ0NBQkFBQkJBZ0FBZ2dRQUFBUTl2SG43L3Z2V0R3RUFyTXNOQUFBRUNRQUFDQklBQUJBa0FBQWdTQUFBUUpBQUFJQWdBUUFBUVFJQUFJSUVBQUFFQ1FBQUNCSUFBQkFrQUFBZ1NBQUFRSkFBQUlBZ0FRQUFRUUlBQUlJRUFBQUVDUUFBQ0JJQUFCQWtBQUFnU0FBQVFKQUFBSUFnQVFBQVFRSUFBSUlFQUFBRUNRQUFDQklBQUJBa0FBQWdTQUFBUUpBQUFJQWdBUUFBUVFJQUFJSUVBQUFFQ1FBQUNCSUFBQkFrQUFBZ1NBQUFRSkFBQUlBZ0FRQUFRUUlBQUlJRUFBQUVDUUFBQ0JJQUFCQWtBQUFnU0FBQVFKQUFBSUFnQVFBQVFRSUFBSUlFQUFBRUNRQUFDSHIxN2N1bmg2MGZBZ0JZejdjdm54N2NBQUJBa0FBQWdDQUJBQUJCQWdBQWdnUUFBQVFKQUFBSUVnQUFFUFJxbW43OGU4Q3RId1FBV043ajVyc0JBSUFnQVFBQVFRSUFBSUlFQUFBRS9Sa0FmaEVRQUk3dGRPdmRBQUJBa0FBQWdDQUJBQUJCUHdXQTN3TUFnR1A2ZGVQZEFBQkFrQUFBZ0NBQkFBQkJ2d1dBM3dNQWdHTjVhdHZkQUFCQWtBQUFnS0FuQThCckFBQTRodWMyM1EwQUFBUUpBQUFJZWpZQXZBWUFnSDA3dCtWdUFBQWdTQUFBUU5EWkFQQWFBQUQyNmFVTmR3TUFBRUV2Qm9CYkFBRFlsMHUyMncwQUFBUUpBQUFJdWlnQXZBWUFnSDI0ZExQZEFBQkEwTVVCNEJZQUFNWjJ6VmE3QVFDQW9Lc0N3QzBBQUl6cDJvMTJBd0FBUVZjSGdGc0FBQmpMTGR2c0JnQUFnbTRLQUxjQUFEQ0dXemZaRFFBQUJOMGNBRzRCQUdCYjkyenhYVGNBSWdBQXRuSHZCbnNGQUFCQmR3ZUFXd0FBV05jYzIrc0dBQUNDWmdrQXR3QUFzSTY1Tm5lMkd3QVJBQURMbW5OcnZRSUFnS0JaQThBdEFBQXNZKzZObmYwR1FBUUF3THlXMk5aRlhnR0lBQUNZeDFLYjZuY0FBQ0Jvc1FCd0N3QUE5MWx5U3hlOUFSQUJBSENicFRkMDhWY0FJZ0FBcnJQR2R2b2RBQUFJV2lVQTNBSUF3R1hXMnN6VmJnQkVBQUNjdCtaV3J2b0tRQVFBd05QVzNzalZmd2RBQkFEQXo3Yll4azErQ1ZBRUFNQVBXMjNpWnY4S1FBUUFVTGZsRm03Nnp3QkZBQUJWVzIvZzV2OGZnSzBQQUFEV05zTDJiUjRBMHpUR1FRREFHa2JadkNFQ1lKckdPUkFBV01wSVd6ZE1BRXpUV0FjREFITWFiZU9HQ29CcEd1K0FBT0JlSTI3YmNBRXdUV01lRkFEY1l0Uk5HeklBcG1uY0F3T0FTNDI4WmNNR3dEU05mWEFBY003b0d6WjBBRXpUK0FjSUFML2F3M1lOLzRDbjNyeDkvMzNyWndDQTUreGgrQjhOZndOd2FrOEhDMERMM2pacVZ3RXdUZnM3WUFDT2I0L2J0THNIUHVXVkFBQmIydVB3UDlyZERjQ3BQUjg4QVB1Mjl3M2FkUUJNMC81L0FBRHN6eEcyWi9jZjRKUlhBZ0FzNlFqRC8yajNOd0NuanZTREFXQXNSOXVZUTMyWVUyNERBSmpEMFliLzBTRS8xQ2toQU1BdGpqcjhqdzcxQ3VBcFIvOEJBakMvd25ZYy9nT2VjaHNBd0RtRjRYK1UrYUNuaEFBQXAwckQveWozZ1U4SkFZQzI0dkEveW43d1UwSUFvS1U4L0kveUIzQktDQUFjbStIL2k0TjRoaGdBT0Fhai96U0g4Z0loQUxCUGh2ODhoM01GTVFBd05xTi9PUWQxSXpFQU1BYWpmeHVITmdNeEFMQXVvMzgvQjdnQVFRQXdMNE0vUHdlNkFrRUFjQjJEdnp3SHZCRlJBUENEc2QrR1F4K1VRQUNPd3NDUDZmK3lZRFpFc3RpTkRBQUFBQUJKUlU1RXJrSmdnZz09IiwgInNpemVzIjogIjUxMng1MTIiLCAidHlwZSI6ICJpbWFnZS9wbmciLCAicHVycG9zZSI6ICJhbnkgbWFza2FibGUifV19">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="apple-mobile-web-app-title" content="boki">
+<link rel="apple-touch-icon" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAALQAAAC0CAYAAAA9zQYyAAADpElEQVR4nO3cO1IbQQBFUUnlvRA5caIFeAcuYmeOvAIWQkTmmC2wABIljlgNDlxQfPSZT8/09JtzcokOLo8eVLDdLMDV/vq59hkY7+nxflv7DFUOIOB1qBH4bF9QxOs2V9yTfhERc8yUcU/yxkKmiynC3pV+QzHT1RStFPsOETJjlFrrIgstZsYq1dCo7wohM4Uxaz14ocXMVMa0NShoMTO1oY31DlrMzGVIa72CFjNz69tc56DFTC192usUtJiprWuDF4MWM0vRpcXiH31DTWeDts4szaUmTwYtZpbqXJuuHEQ5GrR1ZulONfopaDHTimOtunIQ5V3Q1pnWfGzWQhNF0ER5Ddp1g1a9bddCE0XQRNltNq4btO+lYQtNFEETRdBE2bo/k8RCE0XQRBE0UQRNFEETRdBEETRRBE0UQRNF0EQRNFEETRRBE0XQRBE0UQRNFEETRdBEETRRBE2UVQR9eLi7OTzc3dQ+B9NbRdCsh6CJImiiCJoogiaKoIkiaKJ8qX2APv78/lv19Wv28/Zr7SN0YqGJImiiCJoogiZKUw+FQx9MDj/GvZ52WGiiCJoogiaKoIkiaKIImiiCJoqgiSJoogiaKIImiqCJImiiCJoogiaKoIkiaKIImiiCJoqgidLUH8keHu6qvn7Nvn3/VfsInVhoogiaKIImiqCJ0tRD4dAHk5eHwVYebBjOQhNF0EQRNFEETRRBE0XQRBE0UQRNFEETRdBEETRRBE0UQRNF0EQRNFEETRRBE0XQRBE0UZr6m0L/aKaeVv4e00ITRdBEETRRBE2Uph4K/aMZLrHQRBE0UQRNFEETRdBEETRRBE2U7dX++rn2IaAUC00UQRNF0EQRNFEETRRBE0XQRBE0UQRNFEETRdBEETRRBE0UQRNF0EQRNFEETRRBE0XQRBE0UXZPj/fb2oeAEp4e77cWmiiCJoqgibLbbP7fPWofBMZ4adhCE0XQRHkN2rWDVr1t10ITRdBEeRe0awet+dishSbKp6CtNK041urRhRY1S3eqUVcOopwM2kqzVOfaPLvQomZpLjXpykGUi0FbaZaiS4udFlrU1Na1wc5XDlFTS5/2et2hRc3c+jbX+6FQ1MxlSGuDfsshaqY2tLHBv7YTNVMZ01aRKK/2188l3od1KzGSRT5YsdaMVaqh4iFaa/ooPYbFP/q21nQ1RSuTxmetOWbK0ZttTcW9bnP95K5yPRD3OtS4fi7ivivwDEt4fvoH5Svc5I10wbsAAAAASUVORK5CYII=">
+<link rel="icon" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMAAAADACAYAAABS3GwHAAAD80lEQVR4nO3cu3HbQBSGUZDjXhQ5caIC3IFHsTNHrsCFOFLmWC2oACVMHKkaOfBQT74ALLBY/OcUACG4Hy6WkrjpFubq+uap9j0wnceHu03te3it6s0YdrqubhSz/2BDzylzxzDbDzP49DFXCJP/EIPPGFOHMNnFDT4lTRVC8YsafKZUOoRtyYsZfqZWesaK1GTwqaHENhi9AQw/tZSYvVEBGH5qGzuDgwMw/CzFmFkcFIDhZ2mGzmTvAAw/SzVkNnsFYPhZur4zenEAhp9W9JnViwIw/LTm0pk9G4Dhp1WXzG7RP4WA1pwMwNOf1p2b4aMBGH7W4tQsewUi2sEAPP1Zm2MzbQMQ7UMAnv6s1aHZtgGI9iYAT3/W7v2M2wBEew7A058Ur2fdBiCaAIi27TqvP+TZz7wNQDQBEE0ARBMA0TYOwCSzAYgmAKIJgGgCIJoAiCYAogmAaAIgmgCIJgCiCYBoAiCaAIgmAKIJgGgCIJoAiCYAogmAaAIgWmQAu/vbX7v721+174P6IgOAPQEQTQBEEwDRBEA0ARBNAEQTANEEQLRPtW9gqD8//y7iGrz4/vtz7VvozQYgmgCIJgCiCYBozR6Cxxy4dt/GX4N1sAGIJgCiCYBoAiCaAIgmAKIJgGgCIJoAiCYAogmAaAIgmgCIJgCiCYBoAiCaAIgmAKIJgGgCIJoAiNbst0Ls7m8XcQ1efPn6o/Yt9GYDEE0ARBMA0QRAtGYPwWMOXPvDb4uHNsqyAYgmAKIJgGgCIJoAiCYAogmAaAIgmgCIJgCiCYBoAiCaAIgmAKIJgGgCIJoAiCYAogmAaAIgWrP/FO+b4ZanxS8ZsAGIJgCiCYBoAiBas4dg3wxHCTYA0QRANAEQTQBEEwDRBEA0ARBNAEQTANE2V9c3T7VvAmqxAYgmAKIJgGgCIJoAiCYAogmAaAIgmgCIJgCiCYBoAiCaAIgmAKIJgGgCIJoAiCYAogmAaAIg2vbx4W5T+yaghseHu40NQDQBEE0ARBMA0bZd9/8wUPtGYE77mbcBiCYAoj0H4DWIFK9n3QYg2psAbAHW7v2M2wBE+xCALcBaHZptG4BoBwOwBVibYzNtAxDtaAC2AGtxapZPbgAR0LpzM+wViGhnA7AFaNUls3vRBhABrbl0Zi9+BRIBregzq73OACJg6frOaO9DsAhYqiGzOehTIBGwNENncvDHoCJgKcbM4qjfA4iA2sbO4OhfhImAWkrMXtHhvbq+eSp5PTik5EO36J9C2AZMrfSMTTawtgElTfVwnfyJLQTGmPqtYrZXFiHQx1yv07O/swuBU+Y+R1Y9tIqBrqv74cniPrURxbot7ZPCf/uJ7Ppcgs9ZAAAAAElFTkSuQmCC">
+<style>
+:root{
+  --bg:#f4f5f3; --surface:#ffffff; --surface-2:#f0f1ee;
+  --ink:#1c2530; --muted:#5c6773; --faint:#8b95a1;
+  --line:#e2e4df; --line-strong:#cfd2cb;
+  --indigo:#273754; --indigo-soft:#3e5680;
+  --new:#5b6b7d; --new-bg:#eceff3;
+  --review:#a86a18; --review-bg:#f7efe1;
+  --known:#2f7d46; --known-bg:#e7f1ea;
+  --gold:#b0891f;
+  --radius:14px;
+}
+@media (prefers-color-scheme:dark){
+  :root{
+    --bg:#12151a; --surface:#1b1f26; --surface-2:#232830;
+    --ink:#e8ebef; --muted:#a0a9b4; --faint:#727c88;
+    --line:#2b3038; --line-strong:#3a414b;
+    --indigo:#9fb4d8; --indigo-soft:#8296ba;
+    --new:#9aa7b6; --new-bg:#242a33;
+    --review:#d8a54a; --review-bg:#32291a;
+    --known:#6ec089; --known-bg:#1c2c22;
+    --gold:#d3ad4d;
+  }
+}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0;background:var(--bg);color:var(--ink)}
+body{font-family:system-ui,-apple-system,"Hiragino Kaku Gothic ProN","Hiragino Sans","Noto Sans JP","Apple SD Gothic Neo","Noto Sans KR",sans-serif;
+  -webkit-text-size-adjust:100%;line-height:1.5}
+ruby rt{font-size:.52em;color:var(--faint);font-weight:400;letter-spacing:0}
+.wrap{max-width:640px;margin:0 auto;padding:0 16px calc(120px + env(safe-area-inset-bottom))}
+header{position:sticky;top:0;z-index:20;background:var(--bg);
+  padding:calc(12px + env(safe-area-inset-top)) 16px 10px;border-bottom:1px solid var(--line)}
+.hbar{max-width:640px;margin:0 auto;display:flex;align-items:center;justify-content:space-between}
+.brand{display:flex;align-items:baseline;gap:9px}
+.mark{font-size:20px;font-weight:600;color:var(--indigo);letter-spacing:.5px}
+.mark small{font-size:12px;color:var(--muted);font-weight:400;margin-left:2px}
+.kanji{font-size:13px;color:var(--gold);letter-spacing:2px}
+.hbtns{display:flex;gap:6px}
+.ibtn{border:1px solid var(--line-strong);background:var(--surface);color:var(--ink);
+  width:38px;height:38px;border-radius:10px;font-size:17px;cursor:pointer;display:flex;align-items:center;justify-content:center}
+.ibtn:active{transform:scale(.95)}
+.stats{max-width:640px;margin:10px auto 0;display:flex;gap:8px}
+.stat{flex:1;background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:8px 10px;text-align:center}
+.stat b{display:block;font-size:19px;font-weight:600}
+.stat span{font-size:11px;color:var(--muted)}
+.stat.n b{color:var(--new)} .stat.r b{color:var(--review)} .stat.k b{color:var(--known)}
+.filters{padding-top:12px}
+.frow{display:flex;gap:7px;overflow-x:auto;padding:3px 0;scrollbar-width:none;-webkit-overflow-scrolling:touch}
+.frow::-webkit-scrollbar{display:none}
+.flabel{font-size:11px;color:var(--faint);text-transform:uppercase;letter-spacing:.8px;margin:10px 2px 2px}
+.chip{flex:0 0 auto;border:1px solid var(--line-strong);background:var(--surface);color:var(--muted);
+  padding:7px 13px;border-radius:20px;font-size:13px;cursor:pointer;white-space:nowrap}
+.chip.on{background:var(--indigo);border-color:var(--indigo);color:#fff}
+@media (prefers-color-scheme:dark){.chip.on{color:#12151a}}
+.chip .c{opacity:.7;margin-left:5px;font-size:12px}
+.studybar{margin:16px 0 6px}
+.studybtn{width:100%;border:none;background:var(--indigo);color:#fff;padding:15px;border-radius:var(--radius);
+  font-size:15px;font-weight:500;cursor:pointer;letter-spacing:.3px}
+@media (prefers-color-scheme:dark){.studybtn{color:#12151a}}
+.studybtn:active{transform:scale(.99)}
+.studybtn:disabled{opacity:.4}
+.count-line{font-size:12px;color:var(--muted);text-align:center;margin:10px 0 4px}
+.list{display:flex;flex-direction:column;gap:8px;margin-top:6px}
+.row{display:flex;align-items:center;gap:12px;background:var(--surface);border:1px solid var(--line);
+  border-radius:12px;padding:13px 14px;cursor:pointer}
+.row:active{background:var(--surface-2)}
+.dot{width:9px;height:9px;border-radius:50%;flex:0 0 auto}
+.dot.new{background:var(--new)} .dot.review{background:var(--review)} .dot.known{background:var(--known)}
+.row-main{flex:1;min-width:0}
+.row-term{font-size:18px;line-height:1.9}
+.row-mean{font-size:13px;color:var(--muted);margin-top:1px}
+.badge{flex:0 0 auto;font-size:11px;padding:3px 9px;border-radius:20px;white-space:nowrap}
+.badge.개념{background:var(--new-bg);color:var(--new)}
+.badge.계정과목{background:var(--known-bg);color:var(--known)}
+.badge.동사구문{background:var(--review-bg);color:var(--review)}
+.empty{text-align:center;color:var(--muted);padding:48px 20px;font-size:14px}
+/* speaker */
+.say{border:none;background:transparent;cursor:pointer;color:var(--muted);padding:3px;vertical-align:middle;display:inline-flex;align-items:center;border-radius:8px}
+.say svg{width:19px;height:19px}
+.say:active{color:var(--indigo);background:var(--surface-2)}
+.say.big{border:1px solid var(--line-strong);padding:10px 16px}
+.say.big svg{width:24px;height:24px}
+.say.playing{color:var(--indigo)}
+body.no-tts .say{display:none}
+/* viewer */
+.viewer{position:fixed;inset:0;z-index:50;background:var(--bg);display:none;flex-direction:column}
+.viewer.open{display:flex}
+.vtop{display:flex;align-items:center;justify-content:space-between;padding:calc(12px + env(safe-area-inset-top)) 16px 10px}
+.vprog{font-size:13px;color:var(--muted)}
+.vclose{border:none;background:transparent;color:var(--ink);font-size:26px;cursor:pointer;width:36px;height:36px;line-height:1}
+.vcard-area{flex:1;overflow-y:auto;padding:8px 18px 18px;display:flex;flex-direction:column}
+.vcard{flex:1;background:var(--surface);border:1px solid var(--line);border-radius:18px;
+  padding:26px 22px;display:flex;flex-direction:column;cursor:pointer;min-height:0}
+.face-front{margin:auto;text-align:center}
+.front-term{font-size:38px;line-height:2.0}
+.front-hint{font-size:12px;color:var(--faint);margin-top:22px}
+.vbadge{display:inline-block;font-size:12px;padding:4px 12px;border-radius:20px;margin-bottom:20px}
+.back-head{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap}
+.back-term{font-size:29px;line-height:1.8}
+.back-read{font-size:14px;color:var(--muted)}
+.back-mean{font-size:15px;color:var(--faint);margin:2px 0 16px}
+.tbnote{background:var(--surface-2);border-radius:10px;padding:11px 13px;margin-bottom:16px;
+  font-size:14px;line-height:2.0;color:var(--muted)}
+.tbnote .tag{font-size:11px;color:var(--gold);display:block;margin-bottom:3px;letter-spacing:.5px}
+.tbnote-memo{font-size:13px;color:var(--faint);line-height:1.95;margin-top:7px;padding-top:7px;border-top:1px dashed var(--line)}
+.tbnote-memo b{color:var(--muted);font-weight:400}
+.exs{border-top:1px solid var(--line);padding-top:6px}
+.ex{margin-top:15px}
+.ex-jp{font-size:17px;line-height:2.1}
+.ex-jp .num{color:var(--faint);font-size:13px;margin-right:6px}
+.ex-memo{font-size:13px;color:var(--faint);line-height:1.95;margin-top:3px;padding-left:18px}
+.ex-memo b{color:var(--muted);font-weight:400}
+.vactions{padding:12px 16px calc(16px + env(safe-area-inset-bottom));border-top:1px solid var(--line);background:var(--bg)}
+.status-pick{display:flex;gap:8px;margin-bottom:10px}
+.spick{flex:1;border:1px solid var(--line-strong);background:var(--surface);color:var(--muted);
+  padding:12px 4px;border-radius:12px;font-size:13px;cursor:pointer;text-align:center}
+.spick.on.new{background:var(--new-bg);border-color:var(--new);color:var(--new)}
+.spick.on.review{background:var(--review-bg);border-color:var(--review);color:var(--review)}
+.spick.on.known{background:var(--known-bg);border-color:var(--known);color:var(--known)}
+.nav{display:flex;gap:10px}
+.nav button{flex:1;border:1px solid var(--line-strong);background:var(--surface);color:var(--ink);
+  padding:13px;border-radius:12px;font-size:14px;cursor:pointer}
+.nav button:active{transform:scale(.98)}
+.nav button:disabled{opacity:.35}
+/* modal */
+.modal{position:fixed;inset:0;z-index:60;background:rgba(0,0,0,.45);display:none;align-items:flex-end;justify-content:center}
+.modal.open{display:flex}
+.sheet{background:var(--surface);width:100%;max-width:640px;border-radius:18px 18px 0 0;
+  padding:20px 18px calc(20px + env(safe-area-inset-bottom));max-height:86vh;overflow-y:auto}
+.sheet h3{margin:0 0 4px;font-size:17px;font-weight:600}
+.sheet p{margin:0 0 12px;font-size:13px;color:var(--muted)}
+textarea{width:100%;min-height:150px;border:1px solid var(--line-strong);border-radius:12px;
+  padding:12px;font-family:ui-monospace,Menlo,monospace;font-size:12px;background:var(--bg);color:var(--ink);resize:vertical}
+.sheet-btns{display:flex;gap:8px;margin-top:12px}
+.sheet-btns button{flex:1;padding:13px;border-radius:12px;font-size:14px;cursor:pointer;border:1px solid var(--line-strong);background:var(--surface);color:var(--ink)}
+.sheet-btns .primary{background:var(--indigo);border-color:var(--indigo);color:#fff}
+@media (prefers-color-scheme:dark){.sheet-btns .primary{color:#12151a}}
+.form label{display:block;font-size:12px;color:var(--muted);margin:12px 0 4px}
+.form input,.form select,.form textarea{width:100%;border:1px solid var(--line-strong);border-radius:10px;padding:11px;font-size:15px;background:var(--bg);color:var(--ink)}
+.form textarea{font-family:ui-monospace,Menlo,monospace;font-size:12px;min-height:120px;resize:vertical;line-height:1.6}
+.btn-danger{background:var(--review-bg)!important;border-color:var(--review)!important;color:var(--review)!important}
+.linkbtn{border:none;background:transparent;color:var(--indigo);font-size:14px;cursor:pointer;text-decoration:underline;padding:6px}
+.menu-item{padding:14px 4px;border-bottom:1px solid var(--line);font-size:15px;cursor:pointer;display:flex;justify-content:space-between}
+.menu-item:last-child{border-bottom:none}
+.msg{font-size:13px;margin-top:10px;padding:10px 12px;border-radius:10px;display:none}
+.msg.ok{display:block;background:var(--known-bg);color:var(--known)}
+.msg.err{display:block;background:var(--review-bg);color:var(--review)}
+.vcheck{font-size:14px;line-height:1.95}
+.vcheck .k{color:var(--muted)} .vcheck .v{font-weight:500}
+.vcheck .good{color:var(--known)} .vcheck .bad{color:var(--review)}
+@media (prefers-reduced-motion:no-preference){
+  .row,.chip,.studybtn,.ibtn,.spick,.nav button{transition:transform .08s,background .12s,color .12s}
+  .face-front,.face-back{animation:fade .18s ease}
+  @keyframes fade{from{opacity:0}to{opacity:1}}
+}
+</style>
+</head>
+<body>
+<header>
+  <div class="hbar">
+    <div class="brand"><span class="mark">boki<small>부기 단어장</small></span><span class="kanji">簿記</span></div>
+    <div class="hbtns">
+      <button class="ibtn" id="btnImport" aria-label="단어 불러오기">＋</button>
+      <button class="ibtn" id="btnMenu" aria-label="메뉴">⋯</button>
+    </div>
+  </div>
+  <div class="stats">
+    <div class="stat n"><b id="stNew">0</b><span>새단어</span></div>
+    <div class="stat r"><b id="stReview">0</b><span>복습</span></div>
+    <div class="stat k"><b id="stKnown">0</b><span>익힌단어</span></div>
+  </div>
+</header>
+
+<div class="wrap">
+  <div class="filters">
+    <div class="flabel">장</div>
+    <div class="frow" id="chapChips"></div>
+    <div class="flabel">유형</div>
+    <div class="frow" id="typeChips"></div>
+    <div class="flabel" id="elemLabel" style="display:none">계정과목 분류</div>
+    <div class="frow" id="elemChips" style="display:none"></div>
+    <div class="flabel">학습 상태</div>
+    <div class="frow" id="statusChips"></div>
+  </div>
+  <div class="studybar">
+    <button class="studybtn" id="btnStudy">학습 시작</button>
+  </div>
+  <div class="count-line" id="countLine"></div>
+  <div class="list" id="list"></div>
+</div>
+
+<!-- viewer -->
+<div class="viewer" id="viewer">
+  <div class="vtop">
+    <span class="vprog" id="vprog">1 / 1</span>
+    <div style="display:flex;gap:2px">
+      <button class="vclose" id="vedit" aria-label="편집" style="font-size:19px">✎</button>
+      <button class="vclose" id="vclose" aria-label="닫기">×</button>
+    </div>
+  </div>
+  <div class="vcard-area">
+    <div class="vcard" id="vcard"></div>
+  </div>
+  <div class="vactions">
+    <div class="status-pick" id="statusPick">
+      <button class="spick new" data-s="new">새단어</button>
+      <button class="spick review" data-s="review">복습</button>
+      <button class="spick known" data-s="known">익힌단어</button>
+    </div>
+    <div class="nav">
+      <button id="vprev">← 이전</button>
+      <button id="vnext">다음 →</button>
+    </div>
+  </div>
+</div>
+
+<!-- import modal -->
+<div class="modal" id="importModal">
+  <div class="sheet">
+    <h3>단어 불러오기</h3>
+    <p>단어 생성용 프로젝트에서 만든 JSON을 붙여넣으세요. 같은 id는 학습 상태를 유지하며 갱신됩니다.</p>
+    <textarea id="importText" placeholder='{"chapter":"第1章", "cards":[ ... ]}'></textarea>
+    <div class="msg" id="importMsg"></div>
+    <div class="sheet-btns">
+      <button id="importCancel">취소</button>
+      <button class="primary" id="importDo">불러오기</button>
+    </div>
+    <div style="text-align:center;margin-top:8px"><button class="linkbtn" id="openAddCard">또는 직접 한 단어 추가</button></div>
+  </div>
+</div>
+
+<!-- menu modal -->
+<div class="modal" id="menuModal">
+  <div class="sheet">
+    <h3>메뉴</h3>
+    <div class="menu-item" id="mVoice"><span>발음(음성) 확인</span><span>▶</span></div>
+    <div class="menu-item" id="mExport"><span>백업 내보내기 (JSON)</span><span>↓</span></div>
+    <div class="menu-item" id="mReset"><span>모든 데이터 초기화</span><span>⟲</span></div>
+    <div class="menu-item" id="mClose"><span>닫기</span><span>×</span></div>
+    <div class="msg" id="menuMsg"></div>
+  </div>
+</div>
+
+<!-- voice check modal -->
+<div class="modal" id="voiceModal">
+  <div class="sheet">
+    <h3>발음(음성) 확인</h3>
+    <p>이 기기에서 일본어 발음이 재생되는지 확인해요.</p>
+    <div class="vcheck" id="vcheckInfo"></div>
+    <div style="margin:14px 0;padding:12px 14px;background:var(--surface-2);border-radius:10px">
+      <div style="font-size:17px;line-height:2.0"><ruby>簿記<rt>ぼき</rt></ruby>の<ruby>勉強<rt>べんきょう</rt></ruby>を<ruby>始<rt>はじ</rt></ruby>めましょう。</div>
+      <div style="font-size:13px;color:var(--muted);margin-top:3px">부기 공부를 시작합시다. (테스트 문장)</div>
+    </div>
+    <button class="studybtn" id="voiceTest">테스트 재생 ▶</button>
+    <div class="msg" id="voiceStatus"></div>
+    <div class="sheet-btns" style="margin-top:12px"><button id="voiceClose">닫기</button></div>
+  </div>
+</div>
+
+<!-- card editor modal (add / edit) -->
+<div class="modal" id="editModal">
+  <div class="sheet form">
+    <h3 id="editTitle">단어 편집</h3>
+    <label>장</label><select id="edChapter"></select>
+    <label>표제어 · 후리가나는 漢字[よみ] 형식 (예: 売掛金[うりかけきん])</label><input id="edTerm" placeholder="仕訳[しわけ]">
+    <label>읽기 (가나)</label><input id="edReading" placeholder="しわけ">
+    <label>뜻 (한국어)</label><input id="edMeaning" placeholder="분개">
+    <label>유형</label>
+    <select id="edType"><option>개념</option><option>계정과목</option><option>동사·구문</option></select>
+    <div id="edElemWrap" style="display:none"><label>계정과목 분류</label>
+      <select id="edElement"><option value="">(없음)</option><option>자산</option><option>부채</option><option>순자산</option><option>수익</option><option>비용</option></select></div>
+    <label>설명·예문·메모 (JSON, 선택)</label>
+    <textarea id="edAdvanced" placeholder='{"textbookNote":"","defWords":[],"examples":[]}'></textarea>
+    <div class="msg" id="editMsg"></div>
+    <div class="sheet-btns">
+      <button class="btn-danger" id="editDelete">삭제</button>
+      <button id="editCancel">취소</button>
+      <button class="primary" id="editSave">저장</button>
+    </div>
+  </div>
+</div>
+
+<script>
+const SEED = {"chapter": "序章", "chapterKo": "부기 기초·3급 복습", "source": "日商簿記2級 商業簿記 教科書 (CPA Learning)", "count": 38, "cards": [{"id": "josho-001", "term": "仕訳[しわけ]", "reading": "しわけ", "meaning": "분개", "type": "개념", "textbookNote": "プラスは定位置[ていいち]側[がわ]、マイナスは定位置[ていいち]の逆側[ぎゃくがわ]。", "examples": [{"jp": "取引[とりひき]が発生[はっせい]したら仕訳[しわけ]をきる。", "words": [{"w": "取引[とりひき]", "m": "거래"}, {"w": "発生[はっせい]する", "m": "발생하다"}, {"w": "〜したら", "m": "~하면"}, {"w": "仕訳[しわけ]をきる", "m": "분개하다"}]}, {"jp": "仕訳[しわけ]をきってから勘定[かんじょう]に転記[てんき]する。", "words": [{"w": "〜てから", "m": "~한 뒤에"}, {"w": "勘定[かんじょう]", "m": "계정"}, {"w": "転記[てんき]する", "m": "전기하다"}]}, {"jp": "すべての取引[とりひき]を仕訳[しわけ]で記録[きろく]する。", "words": [{"w": "すべての", "m": "모든"}, {"w": "記録[きろく]する", "m": "기록하다"}]}], "status": "new"}, {"id": "josho-002", "term": "転記[てんき]", "reading": "てんき", "meaning": "전기 (원장에 옮겨 적기)", "type": "개념", "textbookNote": "仕訳[しわけ]をきったら、勘定[かんじょう]に転記[てんき]する。", "examples": [{"jp": "仕訳帳[しわけちょう]から総勘定元帳[そうかんじょうもとちょう]に転記[てんき]する。", "words": [{"w": "仕訳帳[しわけちょう]", "m": "분개장"}, {"w": "〜から〜に", "m": "~에서 ~로"}, {"w": "総勘定元帳[そうかんじょうもとちょう]", "m": "총계정원장"}]}, {"jp": "転記[てんき]が正[ただ]しいか試算表[しさんひょう]で確[たし]かめる。", "words": [{"w": "正[ただ]しい", "m": "맞다, 옳다"}, {"w": "〜か", "m": "~인지"}, {"w": "試算表[しさんひょう]", "m": "시산표"}, {"w": "確[たし]かめる", "m": "확인하다"}]}], "status": "new"}, {"id": "josho-003", "term": "勘定[かんじょう]", "reading": "かんじょう", "meaning": "계정", "type": "개념", "textbookNote": "", "examples": [{"jp": "各[かく]勘定[かんじょう]の残高[ざんだか]を計算[けいさん]する。", "words": [{"w": "各[かく]〜", "m": "각~"}, {"w": "残高[ざんだか]", "m": "잔액"}, {"w": "計算[けいさん]する", "m": "계산하다"}]}, {"jp": "現金[げんきん]の増減[ぞうげん]は現金[げんきん]勘定[かんじょう]に記入[きにゅう]する。", "words": [{"w": "現金[げんきん]", "m": "현금"}, {"w": "増減[ぞうげん]", "m": "증감"}, {"w": "記入[きにゅう]する", "m": "기입하다"}]}], "status": "new"}, {"id": "josho-004", "term": "勘定科目[かんじょうかもく]", "reading": "かんじょうかもく", "meaning": "계정과목", "type": "개념", "textbookNote": "", "examples": [{"jp": "取引[とりひき]に合[あ]う勘定科目[かんじょうかもく]を選[えら]ぶ。", "words": [{"w": "〜に合[あ]う", "m": "~에 맞는"}, {"w": "勘定科目[かんじょうかもく]", "m": "계정과목"}, {"w": "選[えら]ぶ", "m": "고르다"}]}, {"jp": "現金[げんきん]や売掛金[うりかけきん]は勘定科目[かんじょうかもく]である。", "words": [{"w": "〜や〜", "m": "~이나 ~"}, {"w": "売掛金[うりかけきん]", "m": "외상매출금"}, {"w": "〜である", "m": "~이다"}]}], "status": "new"}, {"id": "josho-005", "term": "借方[かりかた]", "reading": "かりかた", "meaning": "차변 (왼쪽)", "type": "개념", "textbookNote": "", "examples": [{"jp": "資産[しさん]の増加[ぞうか]は借方[かりかた]に記入[きにゅう]する。", "words": [{"w": "資産[しさん]", "m": "자산"}, {"w": "増加[ぞうか]", "m": "증가"}, {"w": "借方[かりかた]", "m": "차변"}]}, {"jp": "費用[ひよう]が発生[はっせい]したら借方[かりかた]に書[か]く。", "words": [{"w": "費用[ひよう]", "m": "비용"}, {"w": "〜したら", "m": "~하면"}, {"w": "書[か]く", "m": "쓰다, 적다"}]}], "status": "new"}, {"id": "josho-006", "term": "貸方[かしかた]", "reading": "かしかた", "meaning": "대변 (오른쪽)", "type": "개념", "textbookNote": "", "examples": [{"jp": "負債[ふさい]の増加[ぞうか]は貸方[かしかた]に記入[きにゅう]する。", "words": [{"w": "負債[ふさい]", "m": "부채"}, {"w": "貸方[かしかた]", "m": "대변"}]}, {"jp": "収益[しゅうえき]は貸方[かしかた]が定位置[ていいち]である。", "words": [{"w": "収益[しゅうえき]", "m": "수익"}, {"w": "定位置[ていいち]", "m": "정위치"}, {"w": "〜である", "m": "~이다"}]}], "status": "new"}, {"id": "josho-007", "term": "貸借対照表[たいしゃくたいしょうひょう]", "reading": "たいしゃくたいしょうひょう", "meaning": "재무상태표 (대차대조표)", "type": "개념", "textbookNote": "Ｂ/Ｓ（Balance Sheet）", "examples": [{"jp": "期末[きまつ]に貸借対照表[たいしゃくたいしょうひょう]を作成[さくせい]する。", "words": [{"w": "期末[きまつ]", "m": "기말"}, {"w": "作成[さくせい]する", "m": "작성하다"}]}, {"jp": "貸借対照表[たいしゃくたいしょうひょう]は資産[しさん]・負債[ふさい]・純資産[じゅんしさん]を表[あらわ]す。", "words": [{"w": "純資産[じゅんしさん]", "m": "순자산"}, {"w": "表[あらわ]す", "m": "나타내다"}]}], "status": "new"}, {"id": "josho-008", "term": "損益計算書[そんえきけいさんしょ]", "reading": "そんえきけいさんしょ", "meaning": "손익계산서", "type": "개념", "textbookNote": "Ｐ/Ｌ（Profit and Loss Statement）", "examples": [{"jp": "損益計算書[そんえきけいさんしょ]で利益[りえき]を計算[けいさん]する。", "words": [{"w": "利益[りえき]", "m": "이익"}, {"w": "計算[けいさん]する", "m": "계산하다"}]}, {"jp": "収益[しゅうえき]から費用[ひよう]を引[ひ]いて利益[りえき]を求[もと]める。", "words": [{"w": "〜から〜を引[ひ]く", "m": "~에서 ~을 빼다"}, {"w": "求[もと]める", "m": "구하다"}]}], "status": "new"}, {"id": "josho-009", "term": "財務諸表[ざいむしょひょう]", "reading": "ざいむしょひょう", "meaning": "재무제표", "type": "개념", "textbookNote": "Ｆ/Ｓ（Financial Statements）", "examples": [{"jp": "勘定[かんじょう]の残高[ざんだか]が財務諸表[ざいむしょひょう]の計上額[けいじょうがく]となる。", "words": [{"w": "残高[ざんだか]", "m": "잔액"}, {"w": "計上額[けいじょうがく]", "m": "계상액"}, {"w": "〜となる", "m": "~가 된다"}]}, {"jp": "決算[けっさん]で財務諸表[ざいむしょひょう]を作成[さくせい]する。", "words": [{"w": "決算[けっさん]", "m": "결산"}, {"w": "作成[さくせい]する", "m": "작성하다"}]}], "status": "new"}, {"id": "josho-010", "term": "資産[しさん]", "reading": "しさん", "meaning": "자산", "type": "개념", "textbookNote": "", "examples": [{"jp": "現金[げんきん]や建物[たてもの]は資産[しさん]である。", "words": [{"w": "建物[たてもの]", "m": "건물"}, {"w": "〜である", "m": "~이다"}]}, {"jp": "資産[しさん]の定位置[ていいち]は借方[かりかた]である。", "words": [{"w": "定位置[ていいち]", "m": "정위치"}, {"w": "借方[かりかた]", "m": "차변"}]}], "status": "new"}, {"id": "josho-011", "term": "負債[ふさい]", "reading": "ふさい", "meaning": "부채", "type": "개념", "textbookNote": "", "examples": [{"jp": "借入金[かりいれきん]は負債[ふさい]に分類[ぶんるい]される。", "words": [{"w": "借入金[かりいれきん]", "m": "차입금"}, {"w": "〜に分類[ぶんるい]される", "m": "~로 분류되다"}]}, {"jp": "負債[ふさい]は返[かえ]す義務[ぎむ]である。", "words": [{"w": "返[かえ]す", "m": "갚다"}, {"w": "義務[ぎむ]", "m": "의무"}]}], "status": "new"}, {"id": "josho-012", "term": "純資産[じゅんしさん]", "reading": "じゅんしさん", "meaning": "순자산", "type": "개념", "textbookNote": "日商簿記[にっしょうぼき]３級[きゅう]では「資本[しほん]」となっていたものが、２級[きゅう]以降[いこう]は「純資産[じゅんしさん]」に変[か]わります。", "examples": [{"jp": "資産[しさん]から負債[ふさい]を引[ひ]くと純資産[じゅんしさん]になる。", "words": [{"w": "〜から〜を引[ひ]く", "m": "~에서 ~을 빼다"}, {"w": "〜になる", "m": "~가 되다"}]}, {"jp": "資本金[しほんきん]は純資産[じゅんしさん]に含[ふく]まれる。", "words": [{"w": "資本金[しほんきん]", "m": "자본금"}, {"w": "〜に含[ふく]まれる", "m": "~에 포함되다"}]}], "status": "new"}, {"id": "josho-013", "term": "費用[ひよう]", "reading": "ひよう", "meaning": "비용", "type": "개념", "textbookNote": "", "examples": [{"jp": "給料[きゅうりょう]は費用[ひよう]として計上[けいじょう]する。", "words": [{"w": "給料[きゅうりょう]", "m": "급여"}, {"w": "〜として", "m": "~로서"}, {"w": "計上[けいじょう]する", "m": "계상하다"}]}, {"jp": "費用[ひよう]が増[ふ]えると利益[りえき]は減[へ]る。", "words": [{"w": "増[ふ]える", "m": "늘다"}, {"w": "〜と", "m": "~하면"}, {"w": "減[へ]る", "m": "줄다"}]}], "status": "new"}, {"id": "josho-014", "term": "収益[しゅうえき]", "reading": "しゅうえき", "meaning": "수익", "type": "개념", "textbookNote": "", "examples": [{"jp": "商品[しょうひん]を売[う]ると収益[しゅうえき]が発生[はっせい]する。", "words": [{"w": "商品[しょうひん]", "m": "상품"}, {"w": "売[う]る", "m": "팔다"}, {"w": "〜と", "m": "~하면"}, {"w": "発生[はっせい]する", "m": "발생하다"}]}, {"jp": "収益[しゅうえき]の定位置[ていいち]は貸方[かしかた]である。", "words": [{"w": "定位置[ていいち]", "m": "정위치"}, {"w": "貸方[かしかた]", "m": "대변"}]}], "status": "new"}, {"id": "josho-015", "term": "当期純利益[とうきじゅんりえき]", "reading": "とうきじゅんりえき", "meaning": "당기순이익", "type": "개념", "textbookNote": "", "examples": [{"jp": "収益[しゅうえき]から費用[ひよう]を引[ひ]いて当期純利益[とうきじゅんりえき]を求[もと]める。", "words": [{"w": "〜から〜を引[ひ]く", "m": "~에서 ~을 빼다"}, {"w": "求[もと]める", "m": "구하다"}]}, {"jp": "当期純利益[とうきじゅんりえき]を繰越利益剰余金[くりこしりえきじょうよきん]に振[ふ]り替[か]える。", "words": [{"w": "繰越利益剰余金[くりこしりえきじょうよきん]", "m": "이월이익잉여금"}, {"w": "〜に振[ふ]り替[か]える", "m": "~로 대체하다"}]}], "status": "new"}, {"id": "josho-016", "term": "決算[けっさん]", "reading": "けっさん", "meaning": "결산", "type": "개념", "textbookNote": "", "examples": [{"jp": "期末[きまつ]に決算[けっさん]を行[おこな]う。", "words": [{"w": "期末[きまつ]", "m": "기말"}, {"w": "行[おこな]う", "m": "하다, 실시하다"}]}, {"jp": "決算[けっさん]で帳簿[ちょうぼ]を締[し]め切[き]る。", "words": [{"w": "帳簿[ちょうぼ]", "m": "장부"}, {"w": "締[し]め切[き]る", "m": "마감하다"}]}], "status": "new"}, {"id": "josho-017", "term": "決算整理仕訳[けっさんせいりしわけ]", "reading": "けっさんせいりしわけ", "meaning": "결산정리분개", "type": "개념", "textbookNote": "決算整理前[けっさんせいりまえ]残高[ざんだか]を財務諸表[ざいむしょひょう]計上額[けいじょうがく]に修正[しゅうせい]する。", "examples": [{"jp": "決算[けっさん]で決算整理仕訳[けっさんせいりしわけ]をきる。", "words": [{"w": "決算[けっさん]", "m": "결산"}, {"w": "仕訳[しわけ]をきる", "m": "분개하다"}]}, {"jp": "減価償却費[げんかしょうきゃくひ]を決算整理仕訳[けっさんせいりしわけ]で計上[けいじょう]する。", "words": [{"w": "減価償却費[げんかしょうきゃくひ]", "m": "감가상각비"}, {"w": "計上[けいじょう]する", "m": "계상하다"}]}], "status": "new"}, {"id": "josho-018", "term": "期中仕訳[きちゅうしわけ]", "reading": "きちゅうしわけ", "meaning": "기중분개", "type": "개념", "textbookNote": "取引[とりひき]をありのままに記録[きろく]する。", "examples": [{"jp": "期中仕訳[きちゅうしわけ]は取引[とりひき]をありのままに記録[きろく]する。", "words": [{"w": "取引[とりひき]", "m": "거래"}, {"w": "ありのままに", "m": "있는 그대로"}, {"w": "記録[きろく]する", "m": "기록하다"}]}, {"jp": "期中仕訳[きちゅうしわけ]と決算整理仕訳[けっさんせいりしわけ]を区別[くべつ]する。", "words": [{"w": "〜と〜", "m": "~와 ~"}, {"w": "区別[くべつ]する", "m": "구별하다"}]}], "status": "new"}, {"id": "josho-019", "term": "試算表[しさんひょう]", "reading": "しさんひょう", "meaning": "시산표", "type": "개념", "textbookNote": "Ｔ/Ｂ（Trial Balance）", "examples": [{"jp": "転記[てんき]が正[ただ]しいか試算表[しさんひょう]で確[たし]かめる。", "words": [{"w": "転記[てんき]", "m": "전기"}, {"w": "正[ただ]しい", "m": "맞다"}, {"w": "確[たし]かめる", "m": "확인하다"}]}, {"jp": "試算表[しさんひょう]で借方[かりかた]と貸方[かしかた]の合計[ごうけい]が一致[いっち]する。", "words": [{"w": "合計[ごうけい]", "m": "합계"}, {"w": "一致[いっち]する", "m": "일치하다"}]}], "status": "new"}, {"id": "josho-020", "term": "残高試算表[ざんだかしさんひょう]", "reading": "ざんだかしさんひょう", "meaning": "잔액시산표", "type": "개념", "textbookNote": "", "examples": [{"jp": "決算整理前[けっさんせいりまえ]残高試算表[ざんだかしさんひょう]を作[つく]る。", "words": [{"w": "決算整理前[けっさんせいりまえ]", "m": "결산정리 전"}, {"w": "作[つく]る", "m": "만들다"}]}, {"jp": "各[かく]勘定[かんじょう]の残高[ざんだか]を残高試算表[ざんだかしさんひょう]に集[あつ]める。", "words": [{"w": "各[かく]〜", "m": "각~"}, {"w": "残高[ざんだか]", "m": "잔액"}, {"w": "集[あつ]める", "m": "모으다"}]}], "status": "new"}, {"id": "josho-021", "term": "総勘定元帳[そうかんじょうもとちょう]", "reading": "そうかんじょうもとちょう", "meaning": "총계정원장", "type": "개념", "textbookNote": "", "examples": [{"jp": "仕訳[しわけ]を総勘定元帳[そうかんじょうもとちょう]に転記[てんき]する。", "words": [{"w": "仕訳[しわけ]", "m": "분개"}, {"w": "転記[てんき]する", "m": "전기하다"}]}, {"jp": "総勘定元帳[そうかんじょうもとちょう]はすべての勘定[かんじょう]を集[あつ]めた帳簿[ちょうぼ]である。", "words": [{"w": "すべての", "m": "모든"}, {"w": "集[あつ]める", "m": "모으다"}, {"w": "帳簿[ちょうぼ]", "m": "장부"}]}], "status": "new"}, {"id": "josho-022", "term": "仕訳帳[しわけちょう]", "reading": "しわけちょう", "meaning": "분개장", "type": "개념", "textbookNote": "", "examples": [{"jp": "取引[とりひき]をまず仕訳帳[しわけちょう]に記入[きにゅう]する。", "words": [{"w": "まず", "m": "우선, 먼저"}, {"w": "記入[きにゅう]する", "m": "기입하다"}]}, {"jp": "仕訳帳[しわけちょう]は仕訳[しわけ]を発生[はっせい]順[じゅん]に書[か]く帳簿[ちょうぼ]である。", "words": [{"w": "発生[はっせい]順[じゅん]", "m": "발생 순서"}, {"w": "書[か]く", "m": "쓰다"}, {"w": "帳簿[ちょうぼ]", "m": "장부"}]}], "status": "new"}, {"id": "josho-023", "term": "精算表[せいさんひょう]", "reading": "せいさんひょう", "meaning": "정산표", "type": "개념", "textbookNote": "", "examples": [{"jp": "精算表[せいさんひょう]で決算[けっさん]の流[なが]れを整理[せいり]する。", "words": [{"w": "決算[けっさん]", "m": "결산"}, {"w": "流[なが]れ", "m": "흐름"}, {"w": "整理[せいり]する", "m": "정리하다"}]}, {"jp": "精算表[せいさんひょう]は試算表[しさんひょう]から財務諸表[ざいむしょひょう]までをまとめた表[ひょう]である。", "words": [{"w": "〜から〜まで", "m": "~부터 ~까지"}, {"w": "まとめる", "m": "정리하다, 종합하다"}, {"w": "表[ひょう]", "m": "표"}]}], "status": "new"}, {"id": "josho-024", "term": "取引[とりひき]", "reading": "とりひき", "meaning": "거래", "type": "개념", "textbookNote": "", "examples": [{"jp": "資産[しさん]が増減[ぞうげん]する取引[とりひき]を記録[きろく]する。", "words": [{"w": "増減[ぞうげん]する", "m": "증감하다"}, {"w": "記録[きろく]する", "m": "기록하다"}]}, {"jp": "取引[とりひき]が発生[はっせい]したら仕訳[しわけ]をきる。", "words": [{"w": "発生[はっせい]する", "m": "발생하다"}, {"w": "〜したら", "m": "~하면"}, {"w": "仕訳[しわけ]をきる", "m": "분개하다"}]}], "status": "new"}, {"id": "josho-025", "term": "現金[げんきん]", "reading": "げんきん", "meaning": "현금", "type": "계정과목", "textbookNote": "", "examples": [{"jp": "商品[しょうひん]を売[う]って現金[げんきん]を受[う]け取[と]った。", "words": [{"w": "商品[しょうひん]", "m": "상품"}, {"w": "売[う]る", "m": "팔다"}, {"w": "〜って", "m": "~해서"}, {"w": "受[う]け取[と]る", "m": "받다"}]}, {"jp": "借入金[かりいれきん]100円[えん]を現金[げんきん]で返済[へんさい]した。", "words": [{"w": "借入金[かりいれきん]", "m": "차입금"}, {"w": "〜で", "m": "~로"}, {"w": "返済[へんさい]する", "m": "상환하다"}]}], "status": "new", "element": "자산"}, {"id": "josho-026", "term": "当座預金[とうざよきん]", "reading": "とうざよきん", "meaning": "당좌예금", "type": "계정과목", "textbookNote": "", "examples": [{"jp": "小切手[こぎって]を振[ふ]り出[だ]して当座預金[とうざよきん]で支払[しはら]う。", "words": [{"w": "小切手[こぎって]", "m": "수표"}, {"w": "振[ふ]り出[だ]す", "m": "발행하다"}, {"w": "支払[しはら]う", "m": "지급하다"}]}, {"jp": "当座預金[とうざよきん]は小切手[こぎって]の決済[けっさい]に使[つか]う。", "words": [{"w": "決済[けっさい]", "m": "결제"}, {"w": "使[つか]う", "m": "쓰다, 사용하다"}]}], "status": "new", "element": "자산"}, {"id": "josho-027", "term": "売掛金[うりかけきん]", "reading": "うりかけきん", "meaning": "외상매출금", "type": "계정과목", "textbookNote": "", "examples": [{"jp": "商品[しょうひん]を掛[か]けで売[う]り、売掛金[うりかけきん]が発生[はっせい]した。", "words": [{"w": "掛[か]けで", "m": "외상으로"}, {"w": "売[う]る", "m": "팔다"}, {"w": "発生[はっせい]する", "m": "발생하다"}]}, {"jp": "売掛金[うりかけきん]100円[えん]を現金[げんきん]で回収[かいしゅう]した。", "words": [{"w": "現金[げんきん]", "m": "현금"}, {"w": "回収[かいしゅう]する", "m": "회수하다"}]}], "status": "new", "element": "자산"}, {"id": "josho-028", "term": "買掛金[かいかけきん]", "reading": "かいかけきん", "meaning": "외상매입금", "type": "계정과목", "textbookNote": "", "examples": [{"jp": "商品[しょうひん]100円[えん]を掛[か]けで仕入[しい]れ、買掛金[かいかけきん]が生[しょう]じた。", "words": [{"w": "掛[か]けで", "m": "외상으로"}, {"w": "仕入[しい]れる", "m": "매입하다"}, {"w": "〜が生[しょう]じる", "m": "~가 생기다"}]}, {"jp": "上記[じょうき]の買掛金[かいかけきん]を現金[げんきん]で支払[しはら]った。", "words": [{"w": "上記[じょうき]", "m": "위 내용"}, {"w": "支払[しはら]う", "m": "지급하다"}]}], "status": "new", "element": "부채"}, {"id": "josho-029", "term": "借入金[かりいれきん]", "reading": "かりいれきん", "meaning": "차입금", "type": "계정과목", "textbookNote": "", "examples": [{"jp": "銀行[ぎんこう]から現金[げんきん]を借[か]りて借入金[かりいれきん]が増[ふ]えた。", "words": [{"w": "銀行[ぎんこう]", "m": "은행"}, {"w": "〜から", "m": "~에서"}, {"w": "借[か]りる", "m": "빌리다"}, {"w": "増[ふ]える", "m": "늘다"}]}, {"jp": "借入金[かりいれきん]100円[えん]を現金[げんきん]で返済[へんさい]した。", "words": [{"w": "返済[へんさい]する", "m": "상환하다"}]}], "status": "new", "element": "부채"}, {"id": "josho-030", "term": "資本金[しほんきん]", "reading": "しほんきん", "meaning": "자본금", "type": "계정과목", "textbookNote": "", "examples": [{"jp": "会社[かいしゃ]設立[せつりつ]で株主[かぶぬし]から出資[しゅっし]を受[う]け、資本金[しほんきん]とする。", "words": [{"w": "設立[せつりつ]", "m": "설립"}, {"w": "株主[かぶぬし]", "m": "주주"}, {"w": "出資[しゅっし]", "m": "출자"}, {"w": "〜を受[う]ける", "m": "~을 받다"}]}, {"jp": "資本金[しほんきん]は純資産[じゅんしさん]に含[ふく]まれる。", "words": [{"w": "純資産[じゅんしさん]", "m": "순자산"}, {"w": "〜に含[ふく]まれる", "m": "~에 포함되다"}]}], "status": "new", "element": "순자산"}, {"id": "josho-031", "term": "貸倒引当金[かしだおれひきあてきん]", "reading": "かしだおれひきあてきん", "meaning": "대손충당금", "type": "계정과목", "textbookNote": "", "examples": [{"jp": "決算[けっさん]で貸倒引当金[かしだおれひきあてきん]を設定[せってい]する。", "words": [{"w": "決算[けっさん]", "m": "결산"}, {"w": "設定[せってい]する", "m": "설정하다"}]}, {"jp": "貸倒引当金[かしだおれひきあてきん]は回収[かいしゅう]できない債権[さいけん]に備[そな]える。", "words": [{"w": "回収[かいしゅう]する", "m": "회수하다"}, {"w": "〜できない", "m": "~할 수 없는"}, {"w": "債権[さいけん]", "m": "채권"}, {"w": "備[そな]える", "m": "대비하다"}]}], "status": "new", "element": "자산"}, {"id": "josho-032", "term": "減価償却費[げんかしょうきゃくひ]", "reading": "げんかしょうきゃくひ", "meaning": "감가상각비", "type": "계정과목", "textbookNote": "", "examples": [{"jp": "決算[けっさん]で建物[たてもの]の減価償却費[げんかしょうきゃくひ]を計上[けいじょう]する。", "words": [{"w": "建物[たてもの]", "m": "건물"}, {"w": "計上[けいじょう]する", "m": "계상하다"}]}, {"jp": "減価償却費[げんかしょうきゃくひ]は固定資産[こていしさん]の価値[かち]の減少[げんしょう]分[ぶん]である。", "words": [{"w": "固定資産[こていしさん]", "m": "고정자산"}, {"w": "価値[かち]", "m": "가치"}, {"w": "減少[げんしょう]", "m": "감소"}]}], "status": "new", "element": "비용"}, {"id": "josho-033", "term": "繰越利益剰余金[くりこしりえきじょうよきん]", "reading": "くりこしりえきじょうよきん", "meaning": "이월이익잉여금", "type": "계정과목", "textbookNote": "", "examples": [{"jp": "当期純利益[とうきじゅんりえき]を繰越利益剰余金[くりこしりえきじょうよきん]に振[ふ]り替[か]える。", "words": [{"w": "当期純利益[とうきじゅんりえき]", "m": "당기순이익"}, {"w": "〜に振[ふ]り替[か]える", "m": "~로 대체하다"}]}, {"jp": "繰越利益剰余金[くりこしりえきじょうよきん]は積[つ]み上[あ]がった利益[りえき]である。", "words": [{"w": "積[つ]み上[あ]がる", "m": "쌓이다"}, {"w": "利益[りえき]", "m": "이익"}]}], "status": "new", "element": "순자산"}, {"id": "josho-034", "term": "計上[けいじょう]する", "reading": "けいじょうする", "meaning": "계상하다 (장부에 올리다)", "type": "동사·구문", "textbookNote": "", "examples": [{"jp": "費用[ひよう]を当期[とうき]に計上[けいじょう]する。", "words": [{"w": "費用[ひよう]", "m": "비용"}, {"w": "当期[とうき]", "m": "당기"}]}, {"jp": "決算[けっさん]で減価償却費[げんかしょうきゃくひ]を計上[けいじょう]する。", "words": [{"w": "減価償却費[げんかしょうきゃくひ]", "m": "감가상각비"}]}], "status": "new"}, {"id": "josho-035", "term": "受[う]け取[と]る", "reading": "うけとる", "meaning": "받다, 수취하다", "type": "동사·구문", "textbookNote": "", "examples": [{"jp": "代金[だいきん]を現金[げんきん]で受[う]け取[と]る。", "words": [{"w": "代金[だいきん]", "m": "대금"}, {"w": "〜を〜で", "m": "~을 ~로"}]}, {"jp": "約束手形[やくそくてがた]を受[う]け取[と]った。", "words": [{"w": "約束手形[やくそくてがた]", "m": "약속어음"}]}], "status": "new"}, {"id": "josho-036", "term": "振[ふ]り出[だ]す", "reading": "ふりだす", "meaning": "발행하다 (수표·어음)", "type": "동사·구문", "textbookNote": "", "examples": [{"jp": "小切手[こぎって]を振[ふ]り出[だ]して支払[しはら]う。", "words": [{"w": "小切手[こぎって]", "m": "수표"}, {"w": "〜て", "m": "~해서"}, {"w": "支払[しはら]う", "m": "지급하다"}]}, {"jp": "約束手形[やくそくてがた]を振[ふ]り出[だ]した。", "words": [{"w": "約束手形[やくそくてがた]", "m": "약속어음"}]}], "status": "new"}, {"id": "josho-037", "term": "仕入[しい]れる", "reading": "しいれる", "meaning": "매입하다", "type": "동사·구문", "textbookNote": "", "examples": [{"jp": "商品[しょうひん]を掛[か]けで仕入[しい]れる。", "words": [{"w": "商品[しょうひん]", "m": "상품"}, {"w": "掛[か]けで", "m": "외상으로"}]}, {"jp": "商品[しょうひん]を現金[げんきん]で仕入[しい]れた。", "words": [{"w": "現金[げんきん]", "m": "현금"}]}], "status": "new"}, {"id": "josho-038", "term": "締[し]め切[き]る", "reading": "しめきる", "meaning": "마감하다 (장부)", "type": "동사·구문", "textbookNote": "", "examples": [{"jp": "決算[けっさん]で帳簿[ちょうぼ]を締[し]め切[き]る。", "words": [{"w": "決算[けっさん]", "m": "결산"}, {"w": "帳簿[ちょうぼ]", "m": "장부"}]}, {"jp": "期末[きまつ]に各[かく]勘定[かんじょう]を締[し]め切[き]る。", "words": [{"w": "期末[きまつ]", "m": "기말"}, {"w": "各[かく]〜", "m": "각~"}, {"w": "勘定[かんじょう]", "m": "계정"}]}], "status": "new"}]};
+const LS = "boki.cards.v1";
+const STAT = {new:"새단어",review:"복습",known:"익힌단어"};
+const SPK='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 5 6 9H2v6h4l5 4V5z"/><path d="M15.5 8.5a5 5 0 0 1 0 7"/><path d="M18.8 5.5a9 9 0 0 1 0 13"/></svg>';
+let jaVoice=null;
+function pickVoice(){try{const vs=speechSynthesis.getVoices();jaVoice=vs.find(v=>/^ja/i.test(v.lang))||null;}catch(e){}}
+if("speechSynthesis" in window){pickVoice();try{speechSynthesis.onvoiceschanged=pickVoice;}catch(e){}}
+function ttsOn(){return "speechSynthesis" in window;}
+function speak(text,btn){
+  if(!ttsOn()||!text)return;
+  try{
+    speechSynthesis.cancel();
+    document.querySelectorAll(".say.playing").forEach(b=>b.classList.remove("playing"));
+    const u=new SpeechSynthesisUtterance(text);
+    u.lang="ja-JP"; u.rate=0.85; if(jaVoice)u.voice=jaVoice;
+    if(btn){ btn.classList.add("playing"); u.onend=u.onerror=()=>btn.classList.remove("playing"); }
+    speechSynthesis.speak(u);
+  }catch(e){}
+}
+function stripFuri(s){return String(s).replace(/\[[^\]]*\]/g,"");}
+function esc(s){return String(s).replace(/&/g,"&amp;").replace(/"/g,"&quot;");}
+function sayBtn(text,big){return '<button class="say'+(big?" big":"")+'" data-say="'+esc(text)+'" aria-label="발음 듣기">'+SPK+'</button>';}
+
+function rubyHTML(s){
+  return String(s).replace(/([一-龥々ヶ]+)\[([^\]]+)\]/g,'<ruby>$1<rt>$2</rt></ruby>');
+}
+function normType(t){ return (t||"").replace(/·/g,"").replace(/\s/g,""); }
+
+function seedCards(){
+  return SEED.cards.map(c=>Object.assign({},c,{chapter:SEED.chapter}));
+}
+function load(){
+  try{ const raw=localStorage.getItem(LS); if(raw){const a=JSON.parse(raw); if(Array.isArray(a)&&a.length) return a;} }catch(e){}
+  const s=seedCards(); save(s); return s;
+}
+function save(a){ try{ localStorage.setItem(LS, JSON.stringify(a)); }catch(e){} }
+
+let cards = load();
+let f = {chapter:"all", type:"all", element:"all", status:"all"};
+let view = [];   // filtered
+let vi = 0;      // viewer index
+let back = false;
+
+function filtered(){
+  return cards.filter(c=>
+    (f.chapter==="all"||c.chapter===f.chapter) &&
+    (f.type==="all"||c.type===f.type) &&
+    (f.element==="all"||c.element===f.element) &&
+    (f.status==="all"||(c.status||"new")===f.status));
+}
+const ELEM_ORDER=["자산","부채","순자산","수익","비용"];
+function uniq(arr){ return [...new Set(arr)]; }
+
+function renderStats(){
+  const s={new:0,review:0,known:0};
+  cards.forEach(c=>{s[c.status||"new"]++;});
+  stNew.textContent=s.new; stReview.textContent=s.review; stKnown.textContent=s.known;
+}
+function chip(label,val,cur,count){
+  const on = cur===val ? " on":"";
+  const c = count!=null ? '<span class="c">'+count+'</span>':'';
+  return '<button class="chip'+on+'" data-v="'+val+'">'+label+c+'</button>';
+}
+function renderFilters(){
+  const chaps = uniq(cards.map(c=>c.chapter));
+  chapChips.innerHTML = chip("전체","all",f.chapter,cards.length) +
+    chaps.map(ch=>chip(ch,ch,f.chapter,cards.filter(c=>c.chapter===ch).length)).join("");
+  const base = cards.filter(c=>f.chapter==="all"||c.chapter===f.chapter);
+  const types = uniq(base.map(c=>c.type));
+  typeChips.innerHTML = chip("전체","all",f.type,base.length) +
+    types.map(t=>chip(t,t,f.type,base.filter(c=>c.type===t).length)).join("");
+  const b1 = base.filter(c=>f.type==="all"||c.type===f.type);
+  if(f.type==="계정과목"){
+    const elems = ELEM_ORDER.filter(e=>b1.some(c=>c.element===e));
+    elemLabel.style.display=""; elemChips.style.display="";
+    elemChips.innerHTML = chip("전체","all",f.element,b1.length) +
+      elems.map(e=>chip(e,e,f.element,b1.filter(c=>c.element===e).length)).join("");
+  } else {
+    if(f.element!=="all") f.element="all";
+    elemLabel.style.display="none"; elemChips.style.display="none";
+  }
+  const b2 = b1.filter(c=>f.element==="all"||c.element===f.element);
+  statusChips.innerHTML = chip("전체","all",f.status,b2.length) +
+    ["new","review","known"].map(s=>chip(STAT[s],s,f.status,b2.filter(c=>(c.status||"new")===s).length)).join("");
+}
+function renderList(){
+  view = filtered();
+  countLine.textContent = view.length ? (view.length+"개 단어") : "";
+  btnStudy.disabled = view.length===0;
+  if(!view.length){ list.innerHTML='<div class="empty">이 조건에 맞는 단어가 없어요.<br>필터를 바꾸거나 새 단어를 불러오세요.</div>'; return; }
+  list.innerHTML = view.map((c,i)=>{
+    const st=c.status||"new";
+    return '<div class="row" data-i="'+i+'">'+
+      '<span class="dot '+st+'"></span>'+
+      '<div class="row-main"><div class="row-term">'+rubyHTML(c.term)+'</div>'+
+      '<div class="row-mean">'+c.meaning+'</div></div>'+
+      '<span class="badge '+normType(c.type)+'">'+c.type+(c.element?' · '+c.element:'')+'</span></div>';
+  }).join("");
+}
+function renderAll(){ renderStats(); renderFilters(); renderList(); }
+
+/* viewer */
+function openViewer(i){ vi=i; back=false; viewer.classList.add("open"); renderCard(); }
+function closeViewer(){ if(ttsOn())try{speechSynthesis.cancel();}catch(e){} viewer.classList.remove("open"); renderAll(); }
+function renderCard(){
+  const c=view[vi]; if(!c){closeViewer();return;}
+  vprog.textContent=(vi+1)+" / "+view.length;
+  const tcls=normType(c.type);
+  let badgeStyle = {개념:'new',계정과목:'known',동사구문:'review'}[tcls]||'new';
+  const badge='<span class="vbadge badge '+tcls+'">'+c.type+(c.element?' · '+c.element:'')+'</span>';
+  if(!back){
+    vcard.innerHTML='<div class="face-front"><div>'+badge+'</div>'+
+      '<div class="front-term">'+rubyHTML(c.term)+'</div>'+
+      (ttsOn()?'<div style="margin-top:16px">'+sayBtn(c.reading,true)+'</div>':'')+
+      '<div class="front-hint">탭해서 뜻 보기</div></div>';
+  }else{
+    let h='<div class="face-back"><div>'+badge+'</div>'+
+      '<div class="back-head"><span class="back-term">'+rubyHTML(c.term)+'</span>'+
+      (ttsOn()?sayBtn(c.reading,false):'')+
+      '<span class="back-read">'+c.reading+'</span></div>'+
+      '<div class="back-mean">'+c.meaning+'</div>';
+    if(c.textbookNote){
+      h+='<div class="tbnote"><span class="tag">설명</span>'+rubyHTML(c.textbookNote);
+      if(c.defWords&&c.defWords.length){
+        h+='<div class="tbnote-memo">'+c.defWords.map(w=>rubyHTML(w.w)+' <b>'+w.m+'</b>').join(' · ')+'</div>';
+      }
+      h+='</div>';
+    }
+    if(c.examples&&c.examples.length){
+      h+='<div class="exs">';
+      c.examples.forEach((e,n)=>{
+        h+='<div class="ex"><div class="ex-jp"><span class="num">'+(n+1)+'.</span>'+rubyHTML(e.jp)+(ttsOn()?' '+sayBtn(stripFuri(e.jp),false):'')+'</div>';
+        if(e.words&&e.words.length){
+          h+='<div class="ex-memo">'+e.words.map(w=>rubyHTML(w.w)+' <b>'+w.m+'</b>').join(' · ')+'</div>';
+        }
+        h+='</div>';
+      });
+      h+='</div>';
+    }
+    h+='</div>';
+    vcard.innerHTML=h;
+  }
+  document.querySelectorAll(".spick").forEach(b=>b.classList.toggle("on",b.dataset.s===(c.status||"new")));
+  vprev.disabled = vi===0; vnext.disabled = vi===view.length-1;
+}
+function setStatus(s){
+  const c=view[vi]; if(!c)return;
+  c.status=s;
+  const real=cards.find(x=>x.id===c.id&&x.chapter===c.chapter); if(real) real.status=s;
+  save(cards); renderCard();
+}
+
+/* import */
+function doImport(){
+  const t=importText.value.trim(); const m=importMsg;
+  m.className="msg"; 
+  if(!t){ m.className="msg err"; m.textContent="붙여넣은 내용이 없어요."; return; }
+  let data; try{ data=JSON.parse(t); }catch(e){ m.className="msg err"; m.textContent="JSON 형식이 올바르지 않아요."; return; }
+  const chapter=data.chapter||"기타"; const incoming=data.cards||(Array.isArray(data)?data:null);
+  if(!incoming||!incoming.length){ m.className="msg err"; m.textContent="cards 목록을 찾지 못했어요."; return; }
+  let added=0,updated=0;
+  incoming.forEach(nc=>{
+    const cardChap = nc.chapter || chapter;
+    const card=Object.assign({},nc,{chapter:cardChap}); if(!card.status)card.status="new";
+    const ex=cards.find(x=>x.id===card.id&&x.chapter===cardChap);
+    if(ex){ Object.assign(ex,card,{status:ex.status}); updated++; }
+    else{ cards.push(card); added++; }
+  });
+  save(cards);
+  m.className="msg ok"; m.textContent="완료 · 새 단어 "+added+"개, 갱신 "+updated+"개";
+  importText.value="";
+  renderAll();
+}
+
+/* card editor (add / edit / delete) */
+let editingId=null;
+function chapterOptions(sel){
+  const chaps=uniq(cards.map(c=>c.chapter));
+  edChapter.innerHTML=(chaps.length?chaps:["序章"]).map(c=>'<option'+(c===sel?' selected':'')+'>'+c+'</option>').join("");
+}
+function advObj(c){return JSON.stringify({textbookNote:c.textbookNote||"",defWords:c.defWords||[],examples:c.examples||[]},null,2);}
+function toggleElem(){ edElemWrap.style.display = edType.value==="계정과목" ? "" : "none"; }
+edType.onchange=toggleElem;
+function openEdit(card){
+  editingId=card.id; editTitle.textContent="단어 편집"; editDelete.style.display="";
+  chapterOptions(card.chapter); edChapter.value=card.chapter;
+  edTerm.value=card.term||""; edReading.value=card.reading||""; edMeaning.value=card.meaning||"";
+  edType.value=card.type||"개념"; edElement.value=card.element||""; toggleElem();
+  edAdvanced.value=advObj(card); editMsg.className="msg";
+  editModal.classList.add("open");
+}
+function openAdd(){
+  editingId=null; editTitle.textContent="새 단어 추가"; editDelete.style.display="none";
+  const cur=(f.chapter!=="all")?f.chapter:null; chapterOptions(cur); if(cur)edChapter.value=cur;
+  edTerm.value="";edReading.value="";edMeaning.value="";edType.value="개념";edElement.value="";toggleElem();
+  edAdvanced.value='{\n  "textbookNote": "",\n  "defWords": [],\n  "examples": []\n}'; editMsg.className="msg";
+  importModal.classList.remove("open"); editModal.classList.add("open");
+}
+function saveEdit(){
+  const term=edTerm.value.trim(), meaning=edMeaning.value.trim();
+  if(!term){ editMsg.className="msg err"; editMsg.textContent="표제어를 입력하세요."; return; }
+  let adv={textbookNote:"",defWords:[],examples:[]};
+  const raw=edAdvanced.value.trim();
+  if(raw){ try{ adv=JSON.parse(raw); }catch(e){ editMsg.className="msg err"; editMsg.textContent="설명·예문 JSON 오류: "+e.message; return; } }
+  const type=edType.value, chapter=edChapter.value;
+  const base={term, reading:edReading.value.trim(), meaning, type,
+    textbookNote:adv.textbookNote||"", defWords:adv.defWords||[], examples:adv.examples||[]};
+  if(type==="계정과목" && edElement.value) base.element=edElement.value;
+  const wasAdd=!editingId;
+  if(editingId){
+    const c=cards.find(x=>x.id===editingId);
+    if(c){ Object.assign(c, base); c.chapter=chapter; if(type!=="계정과목") delete c.element; }
+  }else{
+    cards.push(Object.assign({id:"user-"+Date.now(), chapter, status:"new"}, base));
+  }
+  save(cards); editModal.classList.remove("open");
+  if(viewer.classList.contains("open")){
+    view=filtered(); renderStats(); renderFilters();
+    if(!view.length){ closeViewer(); return; }
+    if(!wasAdd){ const ni=view.findIndex(x=>x.id===editingId); vi=ni>=0?ni:Math.min(vi,view.length-1); }
+    else { vi=Math.min(vi,view.length-1); }
+    back=true; renderCard();
+  } else renderAll();
+}
+function deleteCard(){
+  if(!editingId) return;
+  if(!confirm("이 단어를 삭제할까요? 되돌릴 수 없어요.")) return;
+  const i=cards.findIndex(x=>x.id===editingId); if(i>=0) cards.splice(i,1);
+  save(cards); editModal.classList.remove("open");
+  if(viewer.classList.contains("open")){
+    view=filtered(); renderStats(); renderFilters();
+    if(!view.length) closeViewer(); else { vi=Math.min(vi,view.length-1); back=false; renderCard(); }
+  } else renderAll();
+}
+vedit.onclick=()=>{ const c=view[vi]; if(c) openEdit(c); };
+editCancel.onclick=()=>editModal.classList.remove("open");
+editSave.onclick=saveEdit;
+editDelete.onclick=deleteCard;
+openAddCard.onclick=openAdd;
+editModal.onclick=e=>{ if(e.target===editModal) editModal.classList.remove("open"); };
+
+/* events */
+chapChips.onclick=e=>{const b=e.target.closest(".chip");if(!b)return;f.chapter=b.dataset.v;f.type="all";f.element="all";f.status="all";renderFilters();renderList();};
+typeChips.onclick=e=>{const b=e.target.closest(".chip");if(!b)return;f.type=b.dataset.v;f.element="all";f.status="all";renderFilters();renderList();};
+elemChips.onclick=e=>{const b=e.target.closest(".chip");if(!b)return;f.element=b.dataset.v;f.status="all";renderFilters();renderList();};
+statusChips.onclick=e=>{const b=e.target.closest(".chip");if(!b)return;f.status=b.dataset.v;renderFilters();renderList();};
+list.onclick=e=>{const r=e.target.closest(".row");if(!r)return;openViewer(+r.dataset.i);};
+btnStudy.onclick=()=>{ if(view.length) openViewer(0); };
+vcard.onclick=e=>{const s=e.target.closest(".say");if(s){e.stopPropagation();speak(s.dataset.say,s);return;}back=!back;renderCard();};
+vclose.onclick=closeViewer;
+vprev.onclick=()=>{if(vi>0){vi--;back=false;renderCard();}};
+vnext.onclick=()=>{if(vi<view.length-1){vi++;back=false;renderCard();}};
+statusPick.onclick=e=>{const b=e.target.closest(".spick");if(!b)return;setStatus(b.dataset.s);};
+
+btnImport.onclick=()=>{importModal.classList.add("open");importMsg.className="msg";};
+importCancel.onclick=()=>importModal.classList.remove("open");
+importDo.onclick=doImport;
+importModal.onclick=e=>{if(e.target===importModal)importModal.classList.remove("open");};
+
+btnMenu.onclick=()=>{menuModal.classList.add("open");menuMsg.className="msg";};
+mClose.onclick=()=>menuModal.classList.remove("open");
+menuModal.onclick=e=>{if(e.target===menuModal)menuModal.classList.remove("open");};
+mExport.onclick=()=>{
+  const blob=new Blob([JSON.stringify({exported:new Date().toISOString(),cards},null,2)],{type:"application/json"});
+  const url=URL.createObjectURL(blob); const a=document.createElement("a");
+  a.href=url;a.download="boki_backup.json";a.click();URL.revokeObjectURL(url);
+  menuMsg.className="msg ok";menuMsg.textContent="백업 파일을 내려받았어요.";
+};
+mReset.onclick=()=>{
+  if(confirm("모든 학습 상태와 불러온 단어가 삭제되고 序章 기본 세트로 돌아갑니다. 계속할까요?")){
+    localStorage.removeItem(LS); cards=load(); f={chapter:"all",type:"all",element:"all",status:"all"};
+    renderAll(); menuMsg.className="msg ok"; menuMsg.textContent="초기화했어요.";
+  }
+};
+function voiceInfo(){
+  if(!ttsOn()) return '<div class="bad">이 브라우저는 음성 합성을 지원하지 않아요.</div>';
+  pickVoice();
+  let vs=[]; try{vs=speechSynthesis.getVoices();}catch(e){}
+  const ja=vs.filter(v=>/^ja/i.test(v.lang));
+  let h='<div><span class="k">음성 합성 · </span><span class="v good">지원됨</span></div>';
+  if(ja.length){ h+='<div><span class="k">일본어 음성 · </span><span class="v good">'+ja.map(v=>v.name).join(", ")+'</span></div>'; }
+  else{ h+='<div><span class="k">일본어 음성 · </span><span class="v bad">아직 감지 안 됨</span></div>'+
+        '<div style="font-size:12px;color:var(--faint);margin-top:2px">음성 목록이 늦게 로드될 수 있어요. 테스트 재생을 눌러보세요 — 실기기(사파리·크롬)에서는 대개 정상입니다.</div>'; }
+  h+='<div><span class="k">감지된 전체 음성 · </span><span class="v">'+vs.length+'개</span></div>';
+  return h;
+}
+function openVoiceCheck(){ menuModal.classList.remove("open"); voiceModal.classList.add("open"); vcheckInfo.innerHTML=voiceInfo(); voiceStatus.className="msg"; voiceStatus.textContent=""; }
+mVoice.onclick=openVoiceCheck;
+voiceClose.onclick=()=>{ if(ttsOn())try{speechSynthesis.cancel();}catch(e){} voiceModal.classList.remove("open"); };
+voiceModal.onclick=e=>{ if(e.target===voiceModal){ if(ttsOn())try{speechSynthesis.cancel();}catch(e){} voiceModal.classList.remove("open"); } };
+voiceTest.onclick=()=>{
+  if(!ttsOn()){ voiceStatus.className="msg err"; voiceStatus.textContent="이 브라우저는 음성을 지원하지 않아요."; return; }
+  let started=false;
+  voiceStatus.className="msg ok"; voiceStatus.style.display="block"; voiceStatus.textContent="재생 준비 중…";
+  try{
+    speechSynthesis.cancel();
+    const u=new SpeechSynthesisUtterance("簿記の勉強を始めましょう。");
+    u.lang="ja-JP"; u.rate=0.9; pickVoice(); if(jaVoice)u.voice=jaVoice;
+    u.onstart=()=>{ started=true; voiceStatus.className="msg ok"; voiceStatus.textContent="재생 중… 소리가 들리면 정상이에요."; vcheckInfo.innerHTML=voiceInfo(); };
+    u.onend=()=>{ voiceStatus.className="msg ok"; voiceStatus.textContent="재생 완료 · 음성이 정상 동작해요"+(jaVoice?" ("+jaVoice.name+")":"")+"."; };
+    u.onerror=ev=>{ voiceStatus.className="msg err"; voiceStatus.textContent="재생 오류: "+((ev&&ev.error)||"알 수 없음")+". 실기기에서 다시 시도해 보세요."; };
+    speechSynthesis.speak(u);
+    setTimeout(()=>{ if(!started){ voiceStatus.className="msg err"; voiceStatus.textContent="음성이 시작되지 않았어요. 이 미리보기 화면에서는 막힐 수 있어요 — 배포 후 사파리·크롬에서 열면 대개 정상입니다. 기기 음량과 무음 스위치도 확인하세요."; } }, 1800);
+  }catch(e){ voiceStatus.className="msg err"; voiceStatus.textContent="오류: "+e.message; }
+};
+
+document.addEventListener("keydown",e=>{
+  if(!viewer.classList.contains("open"))return;
+  if(e.key==="ArrowLeft")vprev.click();
+  else if(e.key==="ArrowRight")vnext.click();
+  else if(e.key===" "){e.preventDefault();back=!back;renderCard();}
+  else if(e.key==="Escape")closeViewer();
+});
+
+renderAll();
+</script>
+</body>
+</html>
