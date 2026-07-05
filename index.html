@@ -247,6 +247,7 @@ textarea{width:100%;min-height:150px;border:1px solid var(--line-strong);border-
   <div class="sheet">
     <h3>메뉴</h3>
     <div class="menu-item" id="mVoice"><span>발음(음성) 확인</span><span>▶</span></div>
+    <div class="menu-item" id="mSync"><span>기기 간 동기화</span><span id="mSyncState">꺼짐</span></div>
     <div class="menu-item" id="mExport"><span>백업 내보내기 (JSON)</span><span>↓</span></div>
     <div class="menu-item" id="mReset"><span>모든 데이터 초기화</span><span>⟲</span></div>
     <div class="menu-item" id="mClose"><span>닫기</span><span>×</span></div>
@@ -293,6 +294,28 @@ textarea{width:100%;min-height:150px;border:1px solid var(--line-strong);border-
   </div>
 </div>
 
+<!-- sync settings modal -->
+<div class="modal" id="syncModal">
+  <div class="sheet form">
+    <h3>기기 간 동기화</h3>
+    <p>Supabase(무료)에 단어·수정·학습 상태를 저장해 노트북과 휴대폰이 같은 내용을 공유해요. 아래 3가지를 각 기기에 한 번씩 입력하면 됩니다.</p>
+    <label>Supabase 프로젝트 URL</label><input id="syncUrl" placeholder="https://xxxx.supabase.co" autocapitalize="off" autocorrect="off">
+    <label>anon public key</label><input id="syncKey" placeholder="eyJ..." autocapitalize="off" autocorrect="off">
+    <label>동기화 암호 (모든 기기에서 동일하게)</label><input id="syncPass" placeholder="나만 아는 문구" autocapitalize="off" autocorrect="off">
+    <label style="display:flex;align-items:center;gap:8px;margin-top:14px"><input type="checkbox" id="syncAuto" style="width:auto"> 변경 시 자동 동기화</label>
+    <div class="msg" id="syncMsg"></div>
+    <div class="sheet-btns" style="flex-wrap:wrap">
+      <button id="syncPull">가져오기 ↓</button>
+      <button id="syncPush">올리기 ↑</button>
+      <button class="primary" id="syncSave">저장·연결</button>
+    </div>
+    <div class="sheet-btns" style="margin-top:8px">
+      <button id="syncOff" class="btn-danger">연동 끄기</button>
+      <button id="syncCancel">닫기</button>
+    </div>
+  </div>
+</div>
+
 <script>
 const SEED = {"chapter": "序章", "chapterKo": "부기 기초·3급 복습", "source": "日商簿記2級 商業簿記 教科書 (CPA Learning)", "count": 38, "cards": [{"id": "josho-001", "term": "仕訳[しわけ]", "reading": "しわけ", "meaning": "분개", "type": "개념", "textbookNote": "プラスは定位置[ていいち]側[がわ]、マイナスは定位置[ていいち]の逆側[ぎゃくがわ]。", "examples": [{"jp": "取引[とりひき]が発生[はっせい]したら仕訳[しわけ]をきる。", "words": [{"w": "取引[とりひき]", "m": "거래"}, {"w": "発生[はっせい]する", "m": "발생하다"}, {"w": "〜したら", "m": "~하면"}, {"w": "仕訳[しわけ]をきる", "m": "분개하다"}]}, {"jp": "仕訳[しわけ]をきってから勘定[かんじょう]に転記[てんき]する。", "words": [{"w": "〜てから", "m": "~한 뒤에"}, {"w": "勘定[かんじょう]", "m": "계정"}, {"w": "転記[てんき]する", "m": "전기하다"}]}, {"jp": "すべての取引[とりひき]を仕訳[しわけ]で記録[きろく]する。", "words": [{"w": "すべての", "m": "모든"}, {"w": "記録[きろく]する", "m": "기록하다"}]}], "status": "new"}, {"id": "josho-002", "term": "転記[てんき]", "reading": "てんき", "meaning": "전기 (원장에 옮겨 적기)", "type": "개념", "textbookNote": "仕訳[しわけ]をきったら、勘定[かんじょう]に転記[てんき]する。", "examples": [{"jp": "仕訳帳[しわけちょう]から総勘定元帳[そうかんじょうもとちょう]に転記[てんき]する。", "words": [{"w": "仕訳帳[しわけちょう]", "m": "분개장"}, {"w": "〜から〜に", "m": "~에서 ~로"}, {"w": "総勘定元帳[そうかんじょうもとちょう]", "m": "총계정원장"}]}, {"jp": "転記[てんき]が正[ただ]しいか試算表[しさんひょう]で確[たし]かめる。", "words": [{"w": "正[ただ]しい", "m": "맞다, 옳다"}, {"w": "〜か", "m": "~인지"}, {"w": "試算表[しさんひょう]", "m": "시산표"}, {"w": "確[たし]かめる", "m": "확인하다"}]}], "status": "new"}, {"id": "josho-003", "term": "勘定[かんじょう]", "reading": "かんじょう", "meaning": "계정", "type": "개념", "textbookNote": "", "examples": [{"jp": "各[かく]勘定[かんじょう]の残高[ざんだか]を計算[けいさん]する。", "words": [{"w": "各[かく]〜", "m": "각~"}, {"w": "残高[ざんだか]", "m": "잔액"}, {"w": "計算[けいさん]する", "m": "계산하다"}]}, {"jp": "現金[げんきん]の増減[ぞうげん]は現金[げんきん]勘定[かんじょう]に記入[きにゅう]する。", "words": [{"w": "現金[げんきん]", "m": "현금"}, {"w": "増減[ぞうげん]", "m": "증감"}, {"w": "記入[きにゅう]する", "m": "기입하다"}]}], "status": "new"}, {"id": "josho-004", "term": "勘定科目[かんじょうかもく]", "reading": "かんじょうかもく", "meaning": "계정과목", "type": "개념", "textbookNote": "", "examples": [{"jp": "取引[とりひき]に合[あ]う勘定科目[かんじょうかもく]を選[えら]ぶ。", "words": [{"w": "〜に合[あ]う", "m": "~에 맞는"}, {"w": "勘定科目[かんじょうかもく]", "m": "계정과목"}, {"w": "選[えら]ぶ", "m": "고르다"}]}, {"jp": "現金[げんきん]や売掛金[うりかけきん]は勘定科目[かんじょうかもく]である。", "words": [{"w": "〜や〜", "m": "~이나 ~"}, {"w": "売掛金[うりかけきん]", "m": "외상매출금"}, {"w": "〜である", "m": "~이다"}]}], "status": "new"}, {"id": "josho-005", "term": "借方[かりかた]", "reading": "かりかた", "meaning": "차변 (왼쪽)", "type": "개념", "textbookNote": "", "examples": [{"jp": "資産[しさん]の増加[ぞうか]は借方[かりかた]に記入[きにゅう]する。", "words": [{"w": "資産[しさん]", "m": "자산"}, {"w": "増加[ぞうか]", "m": "증가"}, {"w": "借方[かりかた]", "m": "차변"}]}, {"jp": "費用[ひよう]が発生[はっせい]したら借方[かりかた]に書[か]く。", "words": [{"w": "費用[ひよう]", "m": "비용"}, {"w": "〜したら", "m": "~하면"}, {"w": "書[か]く", "m": "쓰다, 적다"}]}], "status": "new"}, {"id": "josho-006", "term": "貸方[かしかた]", "reading": "かしかた", "meaning": "대변 (오른쪽)", "type": "개념", "textbookNote": "", "examples": [{"jp": "負債[ふさい]の増加[ぞうか]は貸方[かしかた]に記入[きにゅう]する。", "words": [{"w": "負債[ふさい]", "m": "부채"}, {"w": "貸方[かしかた]", "m": "대변"}]}, {"jp": "収益[しゅうえき]は貸方[かしかた]が定位置[ていいち]である。", "words": [{"w": "収益[しゅうえき]", "m": "수익"}, {"w": "定位置[ていいち]", "m": "정위치"}, {"w": "〜である", "m": "~이다"}]}], "status": "new"}, {"id": "josho-007", "term": "貸借対照表[たいしゃくたいしょうひょう]", "reading": "たいしゃくたいしょうひょう", "meaning": "재무상태표 (대차대조표)", "type": "개념", "textbookNote": "Ｂ/Ｓ（Balance Sheet）", "examples": [{"jp": "期末[きまつ]に貸借対照表[たいしゃくたいしょうひょう]を作成[さくせい]する。", "words": [{"w": "期末[きまつ]", "m": "기말"}, {"w": "作成[さくせい]する", "m": "작성하다"}]}, {"jp": "貸借対照表[たいしゃくたいしょうひょう]は資産[しさん]・負債[ふさい]・純資産[じゅんしさん]を表[あらわ]す。", "words": [{"w": "純資産[じゅんしさん]", "m": "순자산"}, {"w": "表[あらわ]す", "m": "나타내다"}]}], "status": "new"}, {"id": "josho-008", "term": "損益計算書[そんえきけいさんしょ]", "reading": "そんえきけいさんしょ", "meaning": "손익계산서", "type": "개념", "textbookNote": "Ｐ/Ｌ（Profit and Loss Statement）", "examples": [{"jp": "損益計算書[そんえきけいさんしょ]で利益[りえき]を計算[けいさん]する。", "words": [{"w": "利益[りえき]", "m": "이익"}, {"w": "計算[けいさん]する", "m": "계산하다"}]}, {"jp": "収益[しゅうえき]から費用[ひよう]を引[ひ]いて利益[りえき]を求[もと]める。", "words": [{"w": "〜から〜を引[ひ]く", "m": "~에서 ~을 빼다"}, {"w": "求[もと]める", "m": "구하다"}]}], "status": "new"}, {"id": "josho-009", "term": "財務諸表[ざいむしょひょう]", "reading": "ざいむしょひょう", "meaning": "재무제표", "type": "개념", "textbookNote": "Ｆ/Ｓ（Financial Statements）", "examples": [{"jp": "勘定[かんじょう]の残高[ざんだか]が財務諸表[ざいむしょひょう]の計上額[けいじょうがく]となる。", "words": [{"w": "残高[ざんだか]", "m": "잔액"}, {"w": "計上額[けいじょうがく]", "m": "계상액"}, {"w": "〜となる", "m": "~가 된다"}]}, {"jp": "決算[けっさん]で財務諸表[ざいむしょひょう]を作成[さくせい]する。", "words": [{"w": "決算[けっさん]", "m": "결산"}, {"w": "作成[さくせい]する", "m": "작성하다"}]}], "status": "new"}, {"id": "josho-010", "term": "資産[しさん]", "reading": "しさん", "meaning": "자산", "type": "개념", "textbookNote": "", "examples": [{"jp": "現金[げんきん]や建物[たてもの]は資産[しさん]である。", "words": [{"w": "建物[たてもの]", "m": "건물"}, {"w": "〜である", "m": "~이다"}]}, {"jp": "資産[しさん]の定位置[ていいち]は借方[かりかた]である。", "words": [{"w": "定位置[ていいち]", "m": "정위치"}, {"w": "借方[かりかた]", "m": "차변"}]}], "status": "new"}, {"id": "josho-011", "term": "負債[ふさい]", "reading": "ふさい", "meaning": "부채", "type": "개념", "textbookNote": "", "examples": [{"jp": "借入金[かりいれきん]は負債[ふさい]に分類[ぶんるい]される。", "words": [{"w": "借入金[かりいれきん]", "m": "차입금"}, {"w": "〜に分類[ぶんるい]される", "m": "~로 분류되다"}]}, {"jp": "負債[ふさい]は返[かえ]す義務[ぎむ]である。", "words": [{"w": "返[かえ]す", "m": "갚다"}, {"w": "義務[ぎむ]", "m": "의무"}]}], "status": "new"}, {"id": "josho-012", "term": "純資産[じゅんしさん]", "reading": "じゅんしさん", "meaning": "순자산", "type": "개념", "textbookNote": "日商簿記[にっしょうぼき]３級[きゅう]では「資本[しほん]」となっていたものが、２級[きゅう]以降[いこう]は「純資産[じゅんしさん]」に変[か]わります。", "examples": [{"jp": "資産[しさん]から負債[ふさい]を引[ひ]くと純資産[じゅんしさん]になる。", "words": [{"w": "〜から〜を引[ひ]く", "m": "~에서 ~을 빼다"}, {"w": "〜になる", "m": "~가 되다"}]}, {"jp": "資本金[しほんきん]は純資産[じゅんしさん]に含[ふく]まれる。", "words": [{"w": "資本金[しほんきん]", "m": "자본금"}, {"w": "〜に含[ふく]まれる", "m": "~에 포함되다"}]}], "status": "new"}, {"id": "josho-013", "term": "費用[ひよう]", "reading": "ひよう", "meaning": "비용", "type": "개념", "textbookNote": "", "examples": [{"jp": "給料[きゅうりょう]は費用[ひよう]として計上[けいじょう]する。", "words": [{"w": "給料[きゅうりょう]", "m": "급여"}, {"w": "〜として", "m": "~로서"}, {"w": "計上[けいじょう]する", "m": "계상하다"}]}, {"jp": "費用[ひよう]が増[ふ]えると利益[りえき]は減[へ]る。", "words": [{"w": "増[ふ]える", "m": "늘다"}, {"w": "〜と", "m": "~하면"}, {"w": "減[へ]る", "m": "줄다"}]}], "status": "new"}, {"id": "josho-014", "term": "収益[しゅうえき]", "reading": "しゅうえき", "meaning": "수익", "type": "개념", "textbookNote": "", "examples": [{"jp": "商品[しょうひん]を売[う]ると収益[しゅうえき]が発生[はっせい]する。", "words": [{"w": "商品[しょうひん]", "m": "상품"}, {"w": "売[う]る", "m": "팔다"}, {"w": "〜と", "m": "~하면"}, {"w": "発生[はっせい]する", "m": "발생하다"}]}, {"jp": "収益[しゅうえき]の定位置[ていいち]は貸方[かしかた]である。", "words": [{"w": "定位置[ていいち]", "m": "정위치"}, {"w": "貸方[かしかた]", "m": "대변"}]}], "status": "new"}, {"id": "josho-015", "term": "当期純利益[とうきじゅんりえき]", "reading": "とうきじゅんりえき", "meaning": "당기순이익", "type": "개념", "textbookNote": "", "examples": [{"jp": "収益[しゅうえき]から費用[ひよう]を引[ひ]いて当期純利益[とうきじゅんりえき]を求[もと]める。", "words": [{"w": "〜から〜を引[ひ]く", "m": "~에서 ~을 빼다"}, {"w": "求[もと]める", "m": "구하다"}]}, {"jp": "当期純利益[とうきじゅんりえき]を繰越利益剰余金[くりこしりえきじょうよきん]に振[ふ]り替[か]える。", "words": [{"w": "繰越利益剰余金[くりこしりえきじょうよきん]", "m": "이월이익잉여금"}, {"w": "〜に振[ふ]り替[か]える", "m": "~로 대체하다"}]}], "status": "new"}, {"id": "josho-016", "term": "決算[けっさん]", "reading": "けっさん", "meaning": "결산", "type": "개념", "textbookNote": "", "examples": [{"jp": "期末[きまつ]に決算[けっさん]を行[おこな]う。", "words": [{"w": "期末[きまつ]", "m": "기말"}, {"w": "行[おこな]う", "m": "하다, 실시하다"}]}, {"jp": "決算[けっさん]で帳簿[ちょうぼ]を締[し]め切[き]る。", "words": [{"w": "帳簿[ちょうぼ]", "m": "장부"}, {"w": "締[し]め切[き]る", "m": "마감하다"}]}], "status": "new"}, {"id": "josho-017", "term": "決算整理仕訳[けっさんせいりしわけ]", "reading": "けっさんせいりしわけ", "meaning": "결산정리분개", "type": "개념", "textbookNote": "決算整理前[けっさんせいりまえ]残高[ざんだか]を財務諸表[ざいむしょひょう]計上額[けいじょうがく]に修正[しゅうせい]する。", "examples": [{"jp": "決算[けっさん]で決算整理仕訳[けっさんせいりしわけ]をきる。", "words": [{"w": "決算[けっさん]", "m": "결산"}, {"w": "仕訳[しわけ]をきる", "m": "분개하다"}]}, {"jp": "減価償却費[げんかしょうきゃくひ]を決算整理仕訳[けっさんせいりしわけ]で計上[けいじょう]する。", "words": [{"w": "減価償却費[げんかしょうきゃくひ]", "m": "감가상각비"}, {"w": "計上[けいじょう]する", "m": "계상하다"}]}], "status": "new"}, {"id": "josho-018", "term": "期中仕訳[きちゅうしわけ]", "reading": "きちゅうしわけ", "meaning": "기중분개", "type": "개념", "textbookNote": "取引[とりひき]をありのままに記録[きろく]する。", "examples": [{"jp": "期中仕訳[きちゅうしわけ]は取引[とりひき]をありのままに記録[きろく]する。", "words": [{"w": "取引[とりひき]", "m": "거래"}, {"w": "ありのままに", "m": "있는 그대로"}, {"w": "記録[きろく]する", "m": "기록하다"}]}, {"jp": "期中仕訳[きちゅうしわけ]と決算整理仕訳[けっさんせいりしわけ]を区別[くべつ]する。", "words": [{"w": "〜と〜", "m": "~와 ~"}, {"w": "区別[くべつ]する", "m": "구별하다"}]}], "status": "new"}, {"id": "josho-019", "term": "試算表[しさんひょう]", "reading": "しさんひょう", "meaning": "시산표", "type": "개념", "textbookNote": "Ｔ/Ｂ（Trial Balance）", "examples": [{"jp": "転記[てんき]が正[ただ]しいか試算表[しさんひょう]で確[たし]かめる。", "words": [{"w": "転記[てんき]", "m": "전기"}, {"w": "正[ただ]しい", "m": "맞다"}, {"w": "確[たし]かめる", "m": "확인하다"}]}, {"jp": "試算表[しさんひょう]で借方[かりかた]と貸方[かしかた]の合計[ごうけい]が一致[いっち]する。", "words": [{"w": "合計[ごうけい]", "m": "합계"}, {"w": "一致[いっち]する", "m": "일치하다"}]}], "status": "new"}, {"id": "josho-020", "term": "残高試算表[ざんだかしさんひょう]", "reading": "ざんだかしさんひょう", "meaning": "잔액시산표", "type": "개념", "textbookNote": "", "examples": [{"jp": "決算整理前[けっさんせいりまえ]残高試算表[ざんだかしさんひょう]を作[つく]る。", "words": [{"w": "決算整理前[けっさんせいりまえ]", "m": "결산정리 전"}, {"w": "作[つく]る", "m": "만들다"}]}, {"jp": "各[かく]勘定[かんじょう]の残高[ざんだか]を残高試算表[ざんだかしさんひょう]に集[あつ]める。", "words": [{"w": "各[かく]〜", "m": "각~"}, {"w": "残高[ざんだか]", "m": "잔액"}, {"w": "集[あつ]める", "m": "모으다"}]}], "status": "new"}, {"id": "josho-021", "term": "総勘定元帳[そうかんじょうもとちょう]", "reading": "そうかんじょうもとちょう", "meaning": "총계정원장", "type": "개념", "textbookNote": "", "examples": [{"jp": "仕訳[しわけ]を総勘定元帳[そうかんじょうもとちょう]に転記[てんき]する。", "words": [{"w": "仕訳[しわけ]", "m": "분개"}, {"w": "転記[てんき]する", "m": "전기하다"}]}, {"jp": "総勘定元帳[そうかんじょうもとちょう]はすべての勘定[かんじょう]を集[あつ]めた帳簿[ちょうぼ]である。", "words": [{"w": "すべての", "m": "모든"}, {"w": "集[あつ]める", "m": "모으다"}, {"w": "帳簿[ちょうぼ]", "m": "장부"}]}], "status": "new"}, {"id": "josho-022", "term": "仕訳帳[しわけちょう]", "reading": "しわけちょう", "meaning": "분개장", "type": "개념", "textbookNote": "", "examples": [{"jp": "取引[とりひき]をまず仕訳帳[しわけちょう]に記入[きにゅう]する。", "words": [{"w": "まず", "m": "우선, 먼저"}, {"w": "記入[きにゅう]する", "m": "기입하다"}]}, {"jp": "仕訳帳[しわけちょう]は仕訳[しわけ]を発生[はっせい]順[じゅん]に書[か]く帳簿[ちょうぼ]である。", "words": [{"w": "発生[はっせい]順[じゅん]", "m": "발생 순서"}, {"w": "書[か]く", "m": "쓰다"}, {"w": "帳簿[ちょうぼ]", "m": "장부"}]}], "status": "new"}, {"id": "josho-023", "term": "精算表[せいさんひょう]", "reading": "せいさんひょう", "meaning": "정산표", "type": "개념", "textbookNote": "", "examples": [{"jp": "精算表[せいさんひょう]で決算[けっさん]の流[なが]れを整理[せいり]する。", "words": [{"w": "決算[けっさん]", "m": "결산"}, {"w": "流[なが]れ", "m": "흐름"}, {"w": "整理[せいり]する", "m": "정리하다"}]}, {"jp": "精算表[せいさんひょう]は試算表[しさんひょう]から財務諸表[ざいむしょひょう]までをまとめた表[ひょう]である。", "words": [{"w": "〜から〜まで", "m": "~부터 ~까지"}, {"w": "まとめる", "m": "정리하다, 종합하다"}, {"w": "表[ひょう]", "m": "표"}]}], "status": "new"}, {"id": "josho-024", "term": "取引[とりひき]", "reading": "とりひき", "meaning": "거래", "type": "개념", "textbookNote": "", "examples": [{"jp": "資産[しさん]が増減[ぞうげん]する取引[とりひき]を記録[きろく]する。", "words": [{"w": "増減[ぞうげん]する", "m": "증감하다"}, {"w": "記録[きろく]する", "m": "기록하다"}]}, {"jp": "取引[とりひき]が発生[はっせい]したら仕訳[しわけ]をきる。", "words": [{"w": "発生[はっせい]する", "m": "발생하다"}, {"w": "〜したら", "m": "~하면"}, {"w": "仕訳[しわけ]をきる", "m": "분개하다"}]}], "status": "new"}, {"id": "josho-025", "term": "現金[げんきん]", "reading": "げんきん", "meaning": "현금", "type": "계정과목", "textbookNote": "", "examples": [{"jp": "商品[しょうひん]を売[う]って現金[げんきん]を受[う]け取[と]った。", "words": [{"w": "商品[しょうひん]", "m": "상품"}, {"w": "売[う]る", "m": "팔다"}, {"w": "〜って", "m": "~해서"}, {"w": "受[う]け取[と]る", "m": "받다"}]}, {"jp": "借入金[かりいれきん]100円[えん]を現金[げんきん]で返済[へんさい]した。", "words": [{"w": "借入金[かりいれきん]", "m": "차입금"}, {"w": "〜で", "m": "~로"}, {"w": "返済[へんさい]する", "m": "상환하다"}]}], "status": "new", "element": "자산"}, {"id": "josho-026", "term": "当座預金[とうざよきん]", "reading": "とうざよきん", "meaning": "당좌예금", "type": "계정과목", "textbookNote": "", "examples": [{"jp": "小切手[こぎって]を振[ふ]り出[だ]して当座預金[とうざよきん]で支払[しはら]う。", "words": [{"w": "小切手[こぎって]", "m": "수표"}, {"w": "振[ふ]り出[だ]す", "m": "발행하다"}, {"w": "支払[しはら]う", "m": "지급하다"}]}, {"jp": "当座預金[とうざよきん]は小切手[こぎって]の決済[けっさい]に使[つか]う。", "words": [{"w": "決済[けっさい]", "m": "결제"}, {"w": "使[つか]う", "m": "쓰다, 사용하다"}]}], "status": "new", "element": "자산"}, {"id": "josho-027", "term": "売掛金[うりかけきん]", "reading": "うりかけきん", "meaning": "외상매출금", "type": "계정과목", "textbookNote": "", "examples": [{"jp": "商品[しょうひん]を掛[か]けで売[う]り、売掛金[うりかけきん]が発生[はっせい]した。", "words": [{"w": "掛[か]けで", "m": "외상으로"}, {"w": "売[う]る", "m": "팔다"}, {"w": "発生[はっせい]する", "m": "발생하다"}]}, {"jp": "売掛金[うりかけきん]100円[えん]を現金[げんきん]で回収[かいしゅう]した。", "words": [{"w": "現金[げんきん]", "m": "현금"}, {"w": "回収[かいしゅう]する", "m": "회수하다"}]}], "status": "new", "element": "자산"}, {"id": "josho-028", "term": "買掛金[かいかけきん]", "reading": "かいかけきん", "meaning": "외상매입금", "type": "계정과목", "textbookNote": "", "examples": [{"jp": "商品[しょうひん]100円[えん]を掛[か]けで仕入[しい]れ、買掛金[かいかけきん]が生[しょう]じた。", "words": [{"w": "掛[か]けで", "m": "외상으로"}, {"w": "仕入[しい]れる", "m": "매입하다"}, {"w": "〜が生[しょう]じる", "m": "~가 생기다"}]}, {"jp": "上記[じょうき]の買掛金[かいかけきん]を現金[げんきん]で支払[しはら]った。", "words": [{"w": "上記[じょうき]", "m": "위 내용"}, {"w": "支払[しはら]う", "m": "지급하다"}]}], "status": "new", "element": "부채"}, {"id": "josho-029", "term": "借入金[かりいれきん]", "reading": "かりいれきん", "meaning": "차입금", "type": "계정과목", "textbookNote": "", "examples": [{"jp": "銀行[ぎんこう]から現金[げんきん]を借[か]りて借入金[かりいれきん]が増[ふ]えた。", "words": [{"w": "銀行[ぎんこう]", "m": "은행"}, {"w": "〜から", "m": "~에서"}, {"w": "借[か]りる", "m": "빌리다"}, {"w": "増[ふ]える", "m": "늘다"}]}, {"jp": "借入金[かりいれきん]100円[えん]を現金[げんきん]で返済[へんさい]した。", "words": [{"w": "返済[へんさい]する", "m": "상환하다"}]}], "status": "new", "element": "부채"}, {"id": "josho-030", "term": "資本金[しほんきん]", "reading": "しほんきん", "meaning": "자본금", "type": "계정과목", "textbookNote": "", "examples": [{"jp": "会社[かいしゃ]設立[せつりつ]で株主[かぶぬし]から出資[しゅっし]を受[う]け、資本金[しほんきん]とする。", "words": [{"w": "設立[せつりつ]", "m": "설립"}, {"w": "株主[かぶぬし]", "m": "주주"}, {"w": "出資[しゅっし]", "m": "출자"}, {"w": "〜を受[う]ける", "m": "~을 받다"}]}, {"jp": "資本金[しほんきん]は純資産[じゅんしさん]に含[ふく]まれる。", "words": [{"w": "純資産[じゅんしさん]", "m": "순자산"}, {"w": "〜に含[ふく]まれる", "m": "~에 포함되다"}]}], "status": "new", "element": "순자산"}, {"id": "josho-031", "term": "貸倒引当金[かしだおれひきあてきん]", "reading": "かしだおれひきあてきん", "meaning": "대손충당금", "type": "계정과목", "textbookNote": "", "examples": [{"jp": "決算[けっさん]で貸倒引当金[かしだおれひきあてきん]を設定[せってい]する。", "words": [{"w": "決算[けっさん]", "m": "결산"}, {"w": "設定[せってい]する", "m": "설정하다"}]}, {"jp": "貸倒引当金[かしだおれひきあてきん]は回収[かいしゅう]できない債権[さいけん]に備[そな]える。", "words": [{"w": "回収[かいしゅう]する", "m": "회수하다"}, {"w": "〜できない", "m": "~할 수 없는"}, {"w": "債権[さいけん]", "m": "채권"}, {"w": "備[そな]える", "m": "대비하다"}]}], "status": "new", "element": "자산"}, {"id": "josho-032", "term": "減価償却費[げんかしょうきゃくひ]", "reading": "げんかしょうきゃくひ", "meaning": "감가상각비", "type": "계정과목", "textbookNote": "", "examples": [{"jp": "決算[けっさん]で建物[たてもの]の減価償却費[げんかしょうきゃくひ]を計上[けいじょう]する。", "words": [{"w": "建物[たてもの]", "m": "건물"}, {"w": "計上[けいじょう]する", "m": "계상하다"}]}, {"jp": "減価償却費[げんかしょうきゃくひ]は固定資産[こていしさん]の価値[かち]の減少[げんしょう]分[ぶん]である。", "words": [{"w": "固定資産[こていしさん]", "m": "고정자산"}, {"w": "価値[かち]", "m": "가치"}, {"w": "減少[げんしょう]", "m": "감소"}]}], "status": "new", "element": "비용"}, {"id": "josho-033", "term": "繰越利益剰余金[くりこしりえきじょうよきん]", "reading": "くりこしりえきじょうよきん", "meaning": "이월이익잉여금", "type": "계정과목", "textbookNote": "", "examples": [{"jp": "当期純利益[とうきじゅんりえき]を繰越利益剰余金[くりこしりえきじょうよきん]に振[ふ]り替[か]える。", "words": [{"w": "当期純利益[とうきじゅんりえき]", "m": "당기순이익"}, {"w": "〜に振[ふ]り替[か]える", "m": "~로 대체하다"}]}, {"jp": "繰越利益剰余金[くりこしりえきじょうよきん]は積[つ]み上[あ]がった利益[りえき]である。", "words": [{"w": "積[つ]み上[あ]がる", "m": "쌓이다"}, {"w": "利益[りえき]", "m": "이익"}]}], "status": "new", "element": "순자산"}, {"id": "josho-034", "term": "計上[けいじょう]する", "reading": "けいじょうする", "meaning": "계상하다 (장부에 올리다)", "type": "동사·구문", "textbookNote": "", "examples": [{"jp": "費用[ひよう]を当期[とうき]に計上[けいじょう]する。", "words": [{"w": "費用[ひよう]", "m": "비용"}, {"w": "当期[とうき]", "m": "당기"}]}, {"jp": "決算[けっさん]で減価償却費[げんかしょうきゃくひ]を計上[けいじょう]する。", "words": [{"w": "減価償却費[げんかしょうきゃくひ]", "m": "감가상각비"}]}], "status": "new"}, {"id": "josho-035", "term": "受[う]け取[と]る", "reading": "うけとる", "meaning": "받다, 수취하다", "type": "동사·구문", "textbookNote": "", "examples": [{"jp": "代金[だいきん]を現金[げんきん]で受[う]け取[と]る。", "words": [{"w": "代金[だいきん]", "m": "대금"}, {"w": "〜を〜で", "m": "~을 ~로"}]}, {"jp": "約束手形[やくそくてがた]を受[う]け取[と]った。", "words": [{"w": "約束手形[やくそくてがた]", "m": "약속어음"}]}], "status": "new"}, {"id": "josho-036", "term": "振[ふ]り出[だ]す", "reading": "ふりだす", "meaning": "발행하다 (수표·어음)", "type": "동사·구문", "textbookNote": "", "examples": [{"jp": "小切手[こぎって]を振[ふ]り出[だ]して支払[しはら]う。", "words": [{"w": "小切手[こぎって]", "m": "수표"}, {"w": "〜て", "m": "~해서"}, {"w": "支払[しはら]う", "m": "지급하다"}]}, {"jp": "約束手形[やくそくてがた]を振[ふ]り出[だ]した。", "words": [{"w": "約束手形[やくそくてがた]", "m": "약속어음"}]}], "status": "new"}, {"id": "josho-037", "term": "仕入[しい]れる", "reading": "しいれる", "meaning": "매입하다", "type": "동사·구문", "textbookNote": "", "examples": [{"jp": "商品[しょうひん]を掛[か]けで仕入[しい]れる。", "words": [{"w": "商品[しょうひん]", "m": "상품"}, {"w": "掛[か]けで", "m": "외상으로"}]}, {"jp": "商品[しょうひん]を現金[げんきん]で仕入[しい]れた。", "words": [{"w": "現金[げんきん]", "m": "현금"}]}], "status": "new"}, {"id": "josho-038", "term": "締[し]め切[き]る", "reading": "しめきる", "meaning": "마감하다 (장부)", "type": "동사·구문", "textbookNote": "", "examples": [{"jp": "決算[けっさん]で帳簿[ちょうぼ]を締[し]め切[き]る。", "words": [{"w": "決算[けっさん]", "m": "결산"}, {"w": "帳簿[ちょうぼ]", "m": "장부"}]}, {"jp": "期末[きまつ]に各[かく]勘定[かんじょう]を締[し]め切[き]る。", "words": [{"w": "期末[きまつ]", "m": "기말"}, {"w": "各[かく]〜", "m": "각~"}, {"w": "勘定[かんじょう]", "m": "계정"}]}], "status": "new"}]};
 const LS = "boki.cards.v1";
@@ -322,6 +345,12 @@ function rubyHTML(s){
 }
 function normType(t){ return (t||"").replace(/·/g,"").replace(/\s/g,""); }
 
+const LS_TS = "boki.cards.ts";
+const LS_SYNC = "boki.sync.cfg";
+let localTS = Number(localStorage.getItem(LS_TS) || 0);
+let syncCfg = null;
+try{ const r=localStorage.getItem(LS_SYNC); if(r) syncCfg=JSON.parse(r); }catch(e){}
+
 function seedCards(){
   return SEED.cards.map(c=>Object.assign({},c,{chapter:SEED.chapter}));
 }
@@ -329,7 +358,14 @@ function load(){
   try{ const raw=localStorage.getItem(LS); if(raw){const a=JSON.parse(raw); if(Array.isArray(a)&&a.length) return a;} }catch(e){}
   const s=seedCards(); save(s); return s;
 }
-function save(a){ try{ localStorage.setItem(LS, JSON.stringify(a)); }catch(e){} }
+function save(a, fromRemote){
+  try{ localStorage.setItem(LS, JSON.stringify(a)); }catch(e){}
+  if(!fromRemote){
+    localTS = Date.now();
+    try{ localStorage.setItem(LS_TS, String(localTS)); }catch(e){}
+    schedulePush();
+  }
+}
 
 let cards = load();
 let f = {chapter:"all", type:"all", element:"all", status:"all"};
@@ -608,7 +644,86 @@ document.addEventListener("keydown",e=>{
   else if(e.key==="Escape")closeViewer();
 });
 
+/* ---------- device sync (Supabase REST) ---------- */
+var pushTimer=null;
+function schedulePush(){
+  if(!syncCfg || !syncCfg.auto) return;
+  clearTimeout(pushTimer);
+  pushTimer=setTimeout(function(){ pushRemote(true); }, 1500);
+}
+function syncBase(){ return syncCfg.url.replace(/\/+$/,'') + '/rest/v1/boki_sync'; }
+function syncHeaders(){ return {'apikey':syncCfg.key,'Authorization':'Bearer '+syncCfg.key,'Content-Type':'application/json'}; }
+async function hashKey(pass){
+  try{ const buf=await crypto.subtle.digest('SHA-256', new TextEncoder().encode('boki:'+pass));
+    return 'k_'+Array.from(new Uint8Array(buf)).map(b=>b.toString(16).padStart(2,'0')).join('').slice(0,40);
+  }catch(e){ return 'k_'+encodeURIComponent(pass); }
+}
+function setSyncState(t){ const el=document.getElementById('mSyncState'); if(el) el.textContent=t; }
+function syncOk(t){ const m=document.getElementById('syncMsg'); if(m){m.className='msg ok';m.textContent=t;} }
+function syncErr(t){ const m=document.getElementById('syncMsg'); if(m){m.className='msg err';m.textContent=t;} }
+async function pushRemote(silent){
+  if(!syncCfg) return false;
+  try{
+    const key=await hashKey(syncCfg.pass);
+    const body=[{sync_key:key, data:{cards:cards, ts:localTS}, updated_at:localTS}];
+    const r=await fetch(syncBase()+'?on_conflict=sync_key',{method:'POST',
+      headers:Object.assign({'Prefer':'resolution=merge-duplicates'},syncHeaders()), body:JSON.stringify(body)});
+    if(!r.ok){ if(!silent) syncErr('올리기 실패 ('+r.status+'). URL·키·표 설정을 확인하세요.'); return false; }
+    setSyncState(syncCfg.auto?'자동':'수동'); if(!silent) syncOk('올렸어요 · '+cards.length+'개'); return true;
+  }catch(e){ if(!silent) syncErr('네트워크 오류'); return false; }
+}
+async function pullRemote(silent){
+  if(!syncCfg) return false;
+  try{
+    const key=await hashKey(syncCfg.pass);
+    const r=await fetch(syncBase()+'?sync_key=eq.'+key+'&select=data,updated_at',{headers:syncHeaders()});
+    if(!r.ok){ if(!silent) syncErr('가져오기 실패 ('+r.status+')'); return false; }
+    const rows=await r.json();
+    if(!rows.length){ if(!silent) syncOk('클라우드에 아직 데이터가 없어요. "올리기"로 이 기기 내용을 먼저 보내세요.'); return false; }
+    const remote=rows[0]; const rts=Number(remote.updated_at)||0;
+    if(rts>localTS && remote.data && Array.isArray(remote.data.cards)){
+      cards=remote.data.cards; localTS=rts;
+      try{ localStorage.setItem(LS, JSON.stringify(cards)); localStorage.setItem(LS_TS,String(localTS)); }catch(e){}
+      f={chapter:"all",type:"all",element:"all",status:"all"};
+      if(viewer.classList.contains("open")) closeViewer(); else renderAll();
+      setSyncState(syncCfg.auto?'자동':'수동'); if(!silent) syncOk('가져왔어요 · '+cards.length+'개'); return true;
+    }
+    setSyncState(syncCfg.auto?'자동':'수동'); if(!silent) syncOk('이미 최신이에요 · '+cards.length+'개'); return false;
+  }catch(e){ if(!silent) syncErr('네트워크 오류'); return false; }
+}
+async function autoSyncOnLoad(){
+  if(!syncCfg){ setSyncState('꺼짐'); return; }
+  setSyncState('동기화 중…');
+  const pulled=await pullRemote(true);
+  if(!pulled) await pushRemote(true);
+  setSyncState(syncCfg.auto?'자동':'수동');
+}
+function openSync(){
+  menuModal.classList.remove("open");
+  if(syncCfg){ syncUrl.value=syncCfg.url||""; syncKey.value=syncCfg.key||""; syncPass.value=syncCfg.pass||""; syncAuto.checked=!!syncCfg.auto; }
+  document.getElementById('syncMsg').className='msg';
+  syncModal.classList.add("open");
+}
+mSync.onclick=openSync;
+syncCancel.onclick=()=>syncModal.classList.remove("open");
+syncModal.onclick=e=>{ if(e.target===syncModal) syncModal.classList.remove("open"); };
+syncSave.onclick=async ()=>{
+  const url=syncUrl.value.trim(), key=syncKey.value.trim(), pass=syncPass.value.trim();
+  if(!url||!key||!pass){ syncErr("URL·키·암호를 모두 입력하세요."); return; }
+  syncCfg={url:url,key:key,pass:pass,auto:syncAuto.checked};
+  try{ localStorage.setItem(LS_SYNC, JSON.stringify(syncCfg)); }catch(e){}
+  syncOk("저장했어요. 연결을 확인하는 중…");
+  const pulled=await pullRemote(false);
+  if(!pulled) await pushRemote(false);
+  setSyncState(syncCfg.auto?'자동':'수동');
+};
+syncPush.onclick=()=>{ if(!syncCfg){syncErr('먼저 저장·연결하세요.');return;} pushRemote(false); };
+syncPull.onclick=()=>{ if(!syncCfg){syncErr('먼저 저장·연결하세요.');return;} pullRemote(false); };
+syncOff.onclick=()=>{ syncCfg=null; try{localStorage.removeItem(LS_SYNC);}catch(e){} setSyncState('꺼짐'); syncOk('연동을 껐어요. (이 기기의 단어는 그대로 남아요.)'); };
+
 renderAll();
+setSyncState(syncCfg ? (syncCfg.auto?'자동':'수동') : '꺼짐');
+autoSyncOnLoad();
 </script>
 </body>
 </html>
